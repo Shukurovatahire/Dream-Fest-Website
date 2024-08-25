@@ -1,0 +1,36 @@
+.orderSection{
+    color: white;
+}
+.orderWrapper{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    color: black;
+    border-radius: 20px;
+    background-color: white;
+}
+.orderBox{
+    color: black;
+}
+.orderBox span{
+    color: #2F5384;
+}
+.orderBox, .orderDtails h1{
+    font-weight: bold;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.userDetails , .orderDtails{
+    display: flex;
+    gap: 1rem;
+    font-weight: 500;
+    flex-direction: column;
+}
+

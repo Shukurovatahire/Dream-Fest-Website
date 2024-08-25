@@ -1,0 +1,27 @@
+.cardContainer2 {
+  max-width: 500px;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+}
+.imgConatiner img {
+  border-radius: 50px;
+  max-width: 220px;
+}
+.descriptionContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.concertName {
+  font-size: 18px;
+}
+.concertDate {
+  font-size: 20px;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 10px;
+}

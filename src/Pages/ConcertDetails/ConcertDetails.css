@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.detailContainer {
+  width: 100%;
+  height: 100%;
+  color: white;
+  margin-bottom: 4rem;
+}
+.detailWrapper {
+  width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.detailTitleContainer {
+  margin-top: 2rem;
+}
+.detailTitle {
+  font-size: 25px;
+  margin-bottom: 10px;
+  cursor: default;
+  text-shadow: 0 1px 0 rgba(253, 53, 90, 1), 1px 1px 0 rgba(253, 53, 90, 1),
+    1px 1px 0 rgba(253, 53, 90, 1), -1px 1px 0 rgba(253, 53, 90, 1);
+  text-transform: uppercase;
+}
+.detailBox2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+.detailBox1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.detailImg img {
+  border-radius: 50px;
+  height: 313px;
+}
+.aboutConcert h4 {
+  font-size: 25px;
+  margin-top: 5px;
+}
+.detailDesc {
+  color: gray;
+}
+.aboutConcert {
+  gap: 5px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.detailAboutWrapper {
+  font-size: 20px;
+  display: flex;
+  color: #ccc9c9;
+  flex-direction: column;
+}
+.detailTitleWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.location {
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.aboutDetail {
+  display: flex;
+  flex-direction: column;
+}
+.aboutDetail h2 {
+  font-size: 20px;
+  cursor: default;
+  color: #ccc8c8;
+}
+.aboutDetail p {
+  color: gray;
+  font-size: 16px;
+}
+
+.detailMap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.detailMap h2 {
+  cursor: default;
+  color: #ccc8c8;
+  font-size: 18px;
+  flex-direction: column;
+}
+
+.detailFlexBox{
+  display: flex;
+  gap: 2rem;
+}

@@ -1,0 +1,56 @@
+.cardBox {
+  width: 100%;
+  height: 100%;
+  max-width: 260px;
+  max-height: 390px;
+  border-radius: 77px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.2)
+}
+.appleMusicLink {
+  background-image: linear-gradient(
+    0turn,
+    rgba(253, 53, 90, 1) 0%,
+    rgba(253, 81, 99, 1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 258px;
+  border-radius: 77px;
+}
+.appleMusicLink img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8rem;
+}
+
+.artsitName{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 130px;
+}
+.artistPhoto{
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px;
+    transition: top 0.5s ease;
+}
+.nameParagraf{
+    font-size: 22px;
+    text-wrap: wrap;
+    font-weight: 500;
+    max-width: 150px;
+    text-transform: uppercase;
+    text-align: center;
+}

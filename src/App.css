@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+body {
+  /* background-color:  rgba(6, 0, 30, 1) */
+}
+
+.mainSection {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 0, 30, 1);
+}
+.wrapperSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.aboutSection {
+  z-index: 1;
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-between;
+  position: relative;
+}
+.aboutImg img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  max-width: 630px;
+  max-height: 630px;
+  transform: scale(1);
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  animation: shake 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(3);
+  }
+  5% {
+    transform: scale(2.9);
+  }
+  10% {
+    transform: scale(2.8);
+  }
+  15% {
+    transform: scale(2.7);
+  }
+  20% {
+    transform: scale(2.6);
+  }
+  25% {
+    transform: scale(2.5);
+  }
+  30% {
+    transform: scale(2.4);
+  }
+  35% {
+    transform: scale(2.3);
+  }
+  40% {
+    transform: scale(2.2);
+  }
+  45% {
+    transform: scale(2.1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  55% {
+    transform: scale(1.9);
+  }
+  60% {
+    transform: scale(1.8);
+  }
+  65% {
+    transform: scale(1.7);
+  }
+  70% {
+    transform: scale(1.6);
+  }
+  75% {
+    transform: scale(1.5);
+  }
+  80% {
+    transform: scale(1.4);
+  }
+  85% {
+    transform: scale(1.3);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  95% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.titleContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  font-size: 54px;
+  max-width: 342px;
+  max-height: 500px;
+  line-height: 1.3;
+  font-weight: 500;
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  flex-direction: column;
+  letter-spacing: -2px;
+}
+.ageLimit {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80px;
+  max-height: 80px;
+  border-radius: 50%;
+  margin-top: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.age {
+  font-size: 30px;
+  line-height: 63px;
+  font-weight: normal;
+}
+.imgRealativ img {
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  max-height: 170px;
+}
+.imgRealativ {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  padding: 2rem;
+}
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+}
+.blueSpan {
+  font-weight: bold;
+  color: rgb(73, 200, 241);
+  font-size: 45px;
+}
+.whiteSpan {
+  font-weight: bold;
+  font-size: 45px;
+}
+.infoSection {
+  width: 100%;
+  height: 100%;
+}
+.infoTitle p {
+  font-size: 52px;
+  line-height: 1.3;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.aboutFestival {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+.aboutFestival img {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 180px;
+}
+.aboutFestival p {
+  font-size: 25px;
+  line-height: 1.5;
+}
+.toAllArtists {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 1160px;
+  border-radius: 30px;
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+  background-position: center;
+}
+.btnToALLStars {
+  outline: none;
+  width: 200px;
+  height: 60px;
+  font-size: 16px;
+  border-radius: 50px;
+  color: #49c8f1;
+  cursor: pointer;
+  border: 1px solid #49c8f1;
+  background-color: transparent;
+  margin-bottom: 2rem;
+  border: 1px solid #49c8f1;
+}
+.btnToALLStars:hover {
+  background-color: #49c8f1;
+  color: white;
+}
+
+.lineUp h1 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 50px;
+}
+.dateContainers {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+.dateDay {
+  font-size: 100px;
+  line-height: 1.4;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.dateMonth {
+  margin-bottom: 2rem;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 100;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.line {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+  background-color: white;
+  height: 1px;
+}
+.dateWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.starsContainer ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.starsContainer li {
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.carousel h1 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 2rem;
+}
+.socialCintainerParagraf {
+  font-size: 25px;
+  line-height: 1.55;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.socialCintainerParagraf2{
+  font-size: 20px;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.socialCintainerParagraf3{
+  font-size: 20px;
+  line-height: 1.55;
+  text-align: center;
+}
+.instaContact{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 6rem;
+}
+.instaImg{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  width: 60px;
+  height: 60px;
+}
+.instaContact img:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}

@@ -1,0 +1,105 @@
+.paymentSection {
+  height: calc(100vh - 81px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.paymentHeader {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+.paymentHeader img {
+  width: 80px;
+}
+
+.paymentBox {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-radius: 8px;
+  box-shadow:  0 0 10px rgb(255 255 255 / 80%);
+}
+.hr {
+  height: 1px;
+  opacity: 0.2;
+  background-color: white;
+}
+.payDetails {
+  padding: 1rem;
+  width: 600px;
+  border-radius: 8px;
+  background-color: white;
+}
+.totalHeader {
+  margin-right: 1rem;
+  display: flex;
+  font-weight: 500;
+  justify-content: start;
+}
+.payDetails input {
+  background-color: white;
+  outline-color: #2f5384;
+  padding: 1rem;
+    border-radius: 5px;
+}
+
+.payForm {
+  gap: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.payForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.payDetails span {
+  margin-left: 7px;
+}
+.dateDetails {
+  gap: 1rem;
+  display: flex;
+}
+.dateDetails label {
+  width: 55px;
+  outline: #2f5384;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 14px;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.sscInput {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  font-size: 26px;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.payImg img {
+  width: 400px;
+}
+.payImg{
+    display: flex;
+    flex-direction: column;
+}

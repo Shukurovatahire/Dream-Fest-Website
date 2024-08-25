@@ -1,0 +1,17 @@
+.breadCrumbContainer {
+  display: flex;
+}
+.breadCrumbContainer ul {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  justify-content: center;
+}
+.breadCrumbContainer span {
+  margin-left: 5px;
+}
+.breadCrumbContainer li{
+    color: white;
+}
+
