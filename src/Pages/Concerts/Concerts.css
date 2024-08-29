@@ -27,7 +27,15 @@
     1px 1px 0 rgba(253, 53, 90, 1), -1px 1px 0 rgba(253, 53, 90, 1);
   text-transform: uppercase;
 }
+.ant-notification-notice {
+  background-color: black !important;
+  color: white !important;
+}
 
+.ant-notification-notice-description, 
+.ant-notification-notice-message {
+  color: white !important;
+}
 .concertsContainerTitle:hover {
   filter: drop-shadow(rgba(198, 236, 250, 0.7) 0px 0px 8px) brightness(1.5);
 }
@@ -45,19 +53,8 @@
 .notificationCustom {
   border: 1px solid rgb(253, 53, 90);
   border-radius: 10px;
+  color: white;
   background-color: black;
-}
-.containerBreadC {
-  margin: 0;
-}
-.notificationCustom .ant-notification-notice-message,
-.notificationCustom .ant-notification-notice-description,
-.notificationCustom .ant-notification-notice {
-  color: white !important;
-}
-
-.notificationCustom .ant-notification-notice-close {
-  color: white !important;
 }
 
 /* Responsiv */
@@ -83,41 +80,14 @@
     gap: 1rem;
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .ant-notification-notice-wrapper {
-    width: 210px;
-    font-size: 12px;
-  }
-  .notificationCustom .ant-notification-notice-message,
-  .notificationCustom .ant-notification-notice-description,
-  .notificationCustom .ant-notification-notice {
-    width: 216px;
+  .notificationCustom {
+    color: white !important;
   }
   .ant-notification-notice-message {
-    font-size: 10px;
+    color: white;
   }
   .ant-notification-notice-description {
-    margin-inline-start: 0;
-    margin-top: 1rem;
-  }
-  .ant-notification-notice-with-icon svg {
-    left: 18px;
-    top: 9px;
-    font-size: 18px;
-  }
-  :where(.css-dev-only-do-not-override-d2lrxs).ant-notification
-    .ant-notification-notice-wrapper
-    .ant-notification-notice-close {
-    top: 10px;
-    left: 184px;
-  }
-
-  :where(
-      .css-dev-only-do-not-override-d2lrxs
-    ).ant-notification-topRight.ant-notification-stack
-    > .ant-notification-notice-wrapper {
-    right: -10px;
-    top: -8px;
+    color: white;
   }
 }
 /* iPads, Tablets */

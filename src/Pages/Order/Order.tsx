@@ -4,6 +4,7 @@ import "./Order.css";
 import Header from "../../Components/Header/Header";
 import Button from "../../Components/Button/Button";
 import { useTranslation } from "react-i18next";
+import Footer from "@/Components/Footer/Footer";
 
 const Order = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -69,6 +70,7 @@ const Order = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </section>
     </>
   );
