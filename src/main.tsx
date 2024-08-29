@@ -16,7 +16,6 @@ import Order from "./Pages/Order/Order";
 import Payment from "./Pages/Payment/Payment";
 import Contact from "./Pages/Contact/Contact";
 import { I18nextProvider } from "react-i18next";
-import "./i18n.ts";
 import React from "react";
 import i18n from "./i18n";
 
