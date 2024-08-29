@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./BreadCrumb.css";
+import { useTranslation } from "react-i18next";
 
 const BreadCrumb = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="breadCrumbContainer">
@@ -13,7 +15,7 @@ const BreadCrumb = () => {
                 color: isActive ? "rgba(253, 53, 90, 1)" : "white",
               })}
             >
-              Home
+              {t("home")}
             </NavLink>
             <span>/</span>
           </li>
@@ -24,7 +26,7 @@ const BreadCrumb = () => {
                 color: isActive ? "rgba(253, 65, 99)" : "white",
               })}
             >
-              All artists
+              {t("artists")}
             </NavLink>
             <span>/</span>
           </li>
@@ -36,12 +38,11 @@ const BreadCrumb = () => {
                 textDecoration: "none",
               })}
             >
-              Concerts
+              {t("concerts")}
             </NavLink>
             <span>/</span>
           </li>
 
-          
           <li>
             <NavLink
               to="/contact"
@@ -50,7 +51,7 @@ const BreadCrumb = () => {
                 textDecoration: "none",
               })}
             >
-              Contact
+              {t("contact")}
             </NavLink>
             <span>/</span>
           </li>
@@ -63,7 +64,7 @@ const BreadCrumb = () => {
                 textDecoration: "none",
               })}
             >
-              Shopping Cart
+             {t("cart")}
             </NavLink>
           </li>
         </ul>

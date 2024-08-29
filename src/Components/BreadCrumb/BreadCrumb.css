@@ -15,3 +15,66 @@
     color: white;
 }
 
+/* Responsiv */
+/* Mobile devices */
+@media (min-width: 320px) and (max-width: 480px) {
+  .breadCrumbContainer li{
+    font-size: 13px;
+  }
+  .breadCrumbContainer ul{
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .breadCrumbContainer{
+    margin-top: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+
+}
+
+/* iPads, Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .breadCrumbContainer li{
+    font-size: 16px;
+  }
+  .breadCrumbContainer ul{
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .breadCrumbContainer{
+    margin-top: 14px;
+    width: 100%;
+  }
+
+}
+/* Small screens, laptops */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .breadCrumbContainer li{
+    font-size: 16px;
+  }
+  .breadCrumbContainer ul{
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .breadCrumbContainer{
+    margin-top: 14px;
+  }
+
+}
+
+/* Desktops, large screens */
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .breadCrumbContainer li{
+    font-size: 16px;
+  }
+  .breadCrumbContainer ul{
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .breadCrumbContainer{
+    margin-top: 14px;
+  }
+
+}

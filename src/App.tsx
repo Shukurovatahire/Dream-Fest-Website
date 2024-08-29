@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import "./App.css";
-
+import React from 'react';
 import ReactLeaflet from "./Components/ReactLeaflet/ReactLeaflet";
 import Haeder from "./Components/Header/Header";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 function App() {
+  const {t}=useTranslation()
   const images = [
     "https://optim.tildacdn.one/tild6434-6463-4536-b063-626133396639/-/format/webp/slider.jpg",
     "https://optim.tildacdn.one/tild6538-3261-4266-a335-326130333665/-/format/webp/3.jpg",
@@ -45,35 +46,35 @@ function App() {
 
           <section className="wrapperSection">
             <section className="aboutSection">
-              <div>
-                <div className="aboutImg">
-                  <img
-                    src="https://optim.tildacdn.one/tild3362-3530-4261-b264-363138323264/-/format/webp/Stage_1.png"
-                    alt="photo"
-                  />
-                </div>
-                <div className="imgRealativ">
-                  <img
-                    src="https://static.tildacdn.one/tild6166-6432-4838-b564-343264313961/_1235.svg"
-                    alt=""
-                  />
-                  <div className="dateContainer">
-                    <span className="blueSpan">JULY 23-28</span>
-                    <span className="blueSpan">18:00-23:30</span>
-                    <span className="whiteSpan">
-                      {" "}
-                      SEA BREEZE, <br /> BAKU
-                    </span>
+              <div className="aboutMax">
+                <div className="centerImg">
+                  <div className="aboutImg">
+                    <img
+                      src="https://optim.tildacdn.one/tild3362-3530-4261-b264-363138323264/-/format/webp/Stage_1.png"
+                      alt="photo"
+                    />
+                  </div>
+                  <div className="imgRealativ">
+                    <img
+                      src="https://static.tildacdn.one/tild6166-6432-4838-b564-343264313961/_1235.svg"
+                      alt=""
+                    />
+                    <div className="dateContainer">
+                      <span className="blueSpan">{t("july_dates")}</span>
+                      <span className="blueSpan">18:00-23:30</span>
+                      <span className="whiteSpan">
+                        SEA BREEZE, <br /> BAKU
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="titleContainer">
-                <p className="aboutTitle">
-                  MORE THAN 100 ARTISTS FROM CIS COUNTRIES, EUROPE, UK, CANADA,
-                  TURKEY
-                </p>
-                <div className="ageLimit">
-                  <div className="age">12+</div>
+                <div className="titleContainer">
+                  <p className="aboutTitle">
+                  {t('event_description')}
+                  </p>
+                  <div className="ageLimit">
+                    <div className="age">12+</div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -81,21 +82,13 @@ function App() {
             <section className="infoSection">
               <div className="infoTitle">
                 <p>
-                  From July 23th to 28th, on the picturesque coast of the resort
-                  town Sea Breeze Resort, the main event of the summer will
-                  unfold — the new International Music Festival DREAM FEST 2024!
+                {t('info')}
                 </p>
               </div>
               <div className="aboutFestival">
                 <img src="https://static.tildacdn.one/tild6430-6434-4764-a637-386536323564/DREAM_FEST.svg" />
                 <p>
-                  Is the atmosphere of a legendary festival on the shores of the
-                  Caspian Sea, which will become even more global, as the
-                  geography of performing countries expands to a worldwide
-                  scale: Russia, Azerbaijan, Georgia, Turkey, Europe, and
-                  others. Audiences can expect six days of grandiose open-air
-                  events on the shores of the Caspian Sea, incredible shows, and
-                  performances more than 100 artists.
+                 {t("festival_description")}
                 </p>
               </div>
 
@@ -107,13 +100,13 @@ function App() {
                   style={{ textDecoration: "none", color: "white" }}
                   to={"allartists"}
                 >
-                  <button className="btnToALLStars">ALL ARTISTS</button>{" "}
+                  <button className="btnToALLStars">{t("all_artists")}</button>{" "}
                 </Link>
               </div>
 
               <div className="lineUp">
                 <div>
-                  <h1>LINEUP</h1>
+                  <h1>{t("lineup")}</h1>
                   <div className="line"></div>
                 </div>
                 <div className="dateWrapper">
@@ -254,7 +247,7 @@ function App() {
                   </div>
                   <div className="starsContainer">
                     <ul>
-                      <li>ENGELBERT HUMPERDINCK</li>
+                      <li>LUSIA CHEBOTINA</li>
                       <li>BOSSON</li>
                       <li>RAFET EL ROMAN</li>
                       <li>BURAK YETER</li>
@@ -275,7 +268,7 @@ function App() {
               </div>
               <div className="line"></div>
               <div className="carousel">
-                <h1>PREVIUS FESTIVALS</h1>
+                <h1>{t("previous_festivals")}</h1>
                 <div
                   className="toAllArtists"
                   style={{
@@ -286,19 +279,14 @@ function App() {
               <div className="line"></div>
               <div className="socialCintainer">
                 <p className="socialCintainerParagraf">
-                  For the convenience of DREAM Fest guests, a shuttle service we
-                  have already organized to and from SEA BREEZE Resort for all
-                  six days of the festival.
+                {t("shuttle_info")}
                 </p>
                 <p className="socialCintainerParagraf2">
-                  Shuttle schedule: <br />
-                  16:00-20:00 Koroglu metro station (parking lot behind the
-                  'pyramid' exit) - Sea Breeze Resort 22:30-02:30 Sea Breeze
-                  Resort - Koroglu metro station (parking lot behind the
-                  'pyramid' exit)
+                 {t("shuttle_schedule1")} <br />
+                  <p>{t("shuttle_schedule2")}</p>
                 </p>
                 <p className="socialCintainerParagraf3">
-                  The transfer is free for all festival ticket holders!
+                 {t("free_transfer")}
                 </p>
               </div>
               <div className="line"></div>
@@ -314,20 +302,17 @@ function App() {
                 </a>
 
                 <p style={{ opacity: "0.5", textTransform: "uppercase" }}>
-                  For any organization questions or
-                  press/media/partnership/sponsorship inquiries, please email
-                  org@dreammusicfest.com
+                 {t("contact_info")}
                 </p>
-                <p style={{ fontSize: "14px", opacity: "0.3" }}>
-                  Zhara Events Group LLC Lahish road, 32A, Nardaran Village,
-                  Baku, Azerbaijan AZ1094 Phone (+994 50) 300 28 62
+                <p className="instaContactP">
+                 {t("address")}
                 </p>
               </div>
             </section>
           </section>
           <div className="">
             <ReactLeaflet
-            borderR="0"
+              borderR="0"
               width="100%"
               height="400px"
               latitude={40.5894}

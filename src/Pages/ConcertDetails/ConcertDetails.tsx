@@ -5,6 +5,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BreadCrumb from "../../Components/BreadCrumb/BreadCrumb";
 import ReactLeaflet from "../../Components/ReactLeaflet/ReactLeaflet";
+import Footer from "../../Components/Footer/Footer";
 const ConcertDetails = () => {
   const [concert, setConcert] = useState<any>(null);
   const { data: concertInfo } = useGetConcertsQuery("Hollywood bowl");
@@ -45,19 +46,12 @@ const ConcertDetails = () => {
             <div className="detailTitleContainer">
               <h1 className="detailTitle">{concert.name} concert details</h1>
 
-              <div style={{ display: "flex" }}>
+              <div className="crumpFlex" style={{ display: "flex" }}>
                 <BreadCrumb />
-                <span style={{ marginLeft: "6px" }}>/</span>
-                <NavLink
-                  to="/concertdetail"
-                  style={({ isActive }) => ({
-                    color: isActive ? "rgba(253, 53, 90, 1)" : "white",
-                    textDecoration: "none",
-                    marginLeft: "6px",
-                  })}
-                >
-                  Concerts details
-                </NavLink>
+                <div className="lilCrump">
+                  <span style={{ marginLeft: "6px",marginRight:"6px" }}>/</span>
+                  <span className="crumbSpan">Concerts details</span>
+                </div>
               </div>
             </div>
             <div className="detailBox1">
@@ -121,6 +115,7 @@ const ConcertDetails = () => {
               </div>
             </div>
           </div>
+          <Footer />
         </section>
       </>
     );

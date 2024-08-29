@@ -91,6 +91,7 @@ p {
 .textArrBox {
   display: flex;
   max-height: 100px;
+  max-width: 350px;
   justify-content: space-between;
   flex-direction: column;
 }
@@ -144,8 +145,18 @@ input[type="radio"]:checked + .deliveryLabel {
   background-color: white;
 }
 
-.myForm input {
+.myForm input[type="text"] {
   text-transform: capitalize;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+.myForm input[type="tel"]{
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+.myForm input[type="email"]{
   border: 1px solid #e1e1e1;
   border-radius: 10px;
   padding: 0.75rem 1rem;
@@ -168,8 +179,11 @@ input[type="radio"]:checked + .deliveryLabel {
 .checkBoxContainer {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2px;
+}
+.incP {
+  font-size: 19px;
 }
 .quantity {
   display: flex;
@@ -221,4 +235,295 @@ input[type="radio"]:checked + .deliveryLabel {
 .boxFlexx h1 {
   color: #6a6a6a;
   margin-bottom: -2px;
+}
+.resBtn2 {
+  width: 200px;
+}
+
+
+/* Responiv */
+/* Mobile devices */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .cartContainer {
+    overflow: hidden;
+  }
+  .cartWrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cartTitle {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: -12px;
+  }
+  .tickestAndPaymentBox {
+    width: 100%;
+    flex-direction: column;
+  }
+  .ticketFlexBox {
+    gap: 1rem;
+  }
+  .cartBox {
+    width: 100%;
+    padding: 14px;
+    gap: 8px;
+    border-radius: 20px 20px 0 0;
+  }
+  .payment {
+    width: 100%;
+    border: none;
+    border-top: 1px solid lightgray;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .addTicket {
+    gap: 10px;
+    flex-direction: column;
+  }
+  .quantity {
+    max-width: 40px;
+    max-height: 40px;
+    font-size: 16px;
+  }
+  .removeButton {
+    max-width: 40px;
+    max-height: 40px;
+    font-size: 16px;
+  }
+  .textArrBox {
+    max-width: 96px;
+    font-size: 12px;
+  }
+  .arrayBox {
+    gap: 5px;
+  }
+  .increaseQuantity {
+    width: 65px;
+    height: 45px;
+    border-radius: 11px;
+  }
+  .incP {
+    font-size: 15px;
+  }
+  .price {
+    width: 50px;
+    height: 30px;
+    border-radius: 7px;
+    margin-top: 3px;
+  }
+  .boxFlexx {
+    flex-direction: column;
+  }
+  .payment {
+    line-height: normal;
+  }
+  .paymetTitle {
+    font-size: 16px;
+    line-height: normal;
+  }
+  .payment h3 {
+    font-size: 17px;
+  }
+  .myForm {
+    font-size: 14px;
+    gap: 10px;
+  }
+  .totalPrice,
+  .totalNum {
+    margin-top: 8px;
+  }
+  .resBtn2 {
+    width: 170px;
+  }
+  .checkBoxContainer {
+    justify-content: flex-start;
+  }
+}
+
+/* iPads, Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .cartContainer {
+    overflow: hidden;
+  }
+  .cartWrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cartTitle {
+    font-size: 18px;
+    margin-left: 2rem;
+    margin-bottom: -12px;
+  }
+  .tickestAndPaymentBox {
+    width: 100%;
+    flex-direction: column;
+  }
+  .ticketFlexBox {
+    gap: 1rem;
+  }
+  .cartBox {
+    width: 100%;
+    gap: 8px;
+    border-radius: 20px 20px 0 0;
+  }
+  .payment {
+    width: 100%;
+    border: none;
+    border-top: 1px solid lightgray;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .addTicket {
+    gap: 10px;
+    flex-direction: column;
+  }
+  .quantity {
+    max-width: 40px;
+    max-height: 40px;
+    font-size: 16px;
+  }
+  .removeButton {
+    max-width: 40px;
+    max-height: 40px;
+    font-size: 16px;
+  }
+  .textArrBox {
+    max-width: 180px;
+  }
+  .increaseQuantity {
+    width: 65px;
+    height: 45px;
+    border-radius: 11px;
+  }
+  .incP {
+    font-size: 15px;
+  }
+  .price {
+    width: 50px;
+    height: 30px;
+    border-radius: 7px;
+    margin-top: 3px;
+  }
+  .boxFlexx {
+    flex-direction: column;
+  }
+  .payment {
+    line-height: normal;
+  }
+  .paymetTitle {
+    font-size: 16px;
+    line-height: normal;
+  }
+  .payment h3 {
+    font-size: 17px;
+  }
+  .myForm {
+    font-size: 14px;
+    gap: 10px;
+  }
+  .totalPrice,
+  .totalNum {
+    margin-top: 8px;
+  }
+  .resBtn2 {
+    width: 170px;
+  }
+  .checkBoxContainer {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cartContainer {
+    overflow: hidden;
+  }
+  .cartWrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cartTitle {
+    margin-bottom: -12px;
+  }
+  .tickestAndPaymentBox {
+    width: 100%;
+  }
+  .ticketFlexBox {
+    gap: 1rem;
+  }
+  .cartBox {
+    width: 100%;
+    gap: 8px;
+  }
+  .payment {
+    border: none;
+    border-left: 1px solid lightgray;
+  }
+  .addTicket {
+    gap: 10px;
+    flex-direction: column;
+  }
+  .textArrBox {
+    max-width: 220px;
+  }
+  .incP {
+    font-size: 15px;
+  }
+  .price {
+    margin-top: 3px;
+  }
+  .payment {
+    line-height: normal;
+  }
+  .checkBoxContainer {
+    justify-content: flex-start;
+  }
+}
+
+/*  Desktops, large screens */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .cartContainer {
+    overflow: hidden;
+  }
+  .cartWrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cartTitle {
+    margin-bottom: -12px;
+  }
+  .tickestAndPaymentBox {
+    width: 100%;
+  }
+  .ticketFlexBox {
+    gap: 1rem;
+  }
+  .cartBox {
+    width: 100%;
+    gap: 8px;
+  }
+  .payment {
+    border: none;
+    border-left: 1px solid lightgray;
+  }
+  .addTicket {
+    gap: 10px;
+    flex-direction: column;
+  }
+  .textArrBox {
+    max-width: 220px;
+  }
+  .incP {
+    font-size: 15px;
+  }
+  .price {
+    margin-top: 3px;
+  }
+  .payment {
+    line-height: normal;
+  }
+  .checkBoxContainer {
+    justify-content: flex-start;
+  }
 }

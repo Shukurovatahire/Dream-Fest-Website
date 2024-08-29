@@ -2,15 +2,26 @@ import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import { notification } from "antd";
 import "./Contact.css";
+import Footer from "../../Components/Footer/Footer";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import BreadCrumb from "@/Components/BreadCrumb/BreadCrumb";
 
 const Contact = () => {
+  const { t } = useTranslation();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     notification.success({
-      message: "Feedback sent",
+      message: t("Contact.feedbackSuccessMessage"),
       className: "notificationCustom",
-      description: "We will get back to you as soon as possible :)",
+      description: t("Contact.feedbackSuccessDescription"),
     });
+    setName("");
+    setEmail("");
+    setMessage("");
   };
   return (
     <>
@@ -18,59 +29,66 @@ const Contact = () => {
         <div className="hdr">
           <Header></Header>
         </div>
-
         <div className="contactWrapper">
           <div className="firstPart">
             <div className="contactTitle">
-              <span className="contactSpan">Contact</span>
-              <h1 className="contactMainTitle">GET IN TOUCH</h1>
+              <span className="contactSpan">{t("Contact.title")}</span>
+              <h1 className="contactMainTitle">{t("Contact.mainTitle")}</h1>
               <span className="secondSpan">
-                <i>We should be hear from you</i>
+                <i>{t("Contact.subtitle")}</i>
               </span>
               <p className="contactParagraf">
                 <i>
-                  Feel free contact any time we
-                  <br /> will get back to you as soon as
-                  <br /> we can .
+                  {t("Contact.description1")}
+                  <br />
+                  {t("Contact.description2")}
+                  <br />
+                  {t("Contact.description3")}
                 </i>
               </p>
-              <hr className="hr2" />
             </div>
             <div>
               <form className="contactForm" onSubmit={handleContactSubmit}>
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder={t("Contact.form.namePlaceholder")}
                   className="contactInput"
                   required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   style={{ textTransform: "capitalize" }}
                 />
                 <input
                   type="email"
-                  placeholder="Email"
+                  placeholder={t("Contact.form.emailPlaceholder")}
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="contactInput"
                 />
                 <input
                   name=""
                   id=""
                   required
-                  placeholder="Message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder={t("Contact.form.messagePlaceholder")}
                   style={{ textTransform: "capitalize" }}
                   className="contactInput"
                 />
                 <div style={{ textAlign: "right" }}>
                   <Button
-                    text="Send"
+                    text={t("Contact.form.sendButton")}
                     bgColor="#e50000"
                     color="white"
-                    width="140px"
+                    className="resBtn"
                   />
                 </div>
               </form>
             </div>
           </div>
           <hr
+            className="noneHr"
             style={{
               backgroundColor: "black",
               marginTop: "2rem",
@@ -79,32 +97,24 @@ const Contact = () => {
           />
           <div className="secondPart">
             <div className="contactItems">
-              <h2>DIRECT CONTACT</h2>
+              <h2>{t("Contact.directContact")}</h2>
 
               <p>
-                {" "}
-                Adress: FO / Fragre Obscurty 0G <br />
-                Overer Mand 3, 5400 Hafiein,Austria
+                {t("Contact.directContactAddress1")} <br />
+                {"Contact.directContactAddress2"}
               </p>
             </div>
             <div className="contactItems">
-              <h2>MEDIA CONTACT</h2>
-              <p>
-                If you are isterested in woeking us and want to noid the beauty
-                of out working in your con mandil. Smory reques as FO Promo Box.
-                We'll send you al onoy of it ,dinacty 10 your doorstep.
-              </p>
+              <h2>{t("Contact.mediaContact")}</h2>
+              <p>{t("Contact.mediaContactDescription")}</p>
             </div>
             <div className="contactItems">
-              <h2>BETTER TOGETHER</h2>
-              <p>
-                Do yor want to join our anam or do an intemano we FC , sunt bee
-                to sand us your portono . Wie are alwyas locking for taineted
-                boys & grils.
-              </p>
+              <h2>{t("Contact.betterTogether")}</h2>
+              <p>{t("Contact.betterTogetherDescription")}</p>
             </div>
           </div>
         </div>
+        <Footer />
       </section>
     </>
   );

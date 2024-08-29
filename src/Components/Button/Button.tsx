@@ -3,16 +3,16 @@ interface IButtonProps {
   text: string;
   bgColor: string;
   color: string;
-  width:string;
   disabled?:any
+  className?:string;
   onClick?: () => void;
 }
 
 const Button:React.FC<IButtonProps> = (props) => {
-  const { text, bgColor, color,width,onClick,disabled } = props;
+  const { text, bgColor, color,onClick,disabled ,className} = props;
   return (
     <>
-      <button className="btn" disabled={disabled} onClick={onClick} style={{backgroundColor:bgColor,color:color,width:width}}>{text}</button>
+      <button className={`btn ${className}`} disabled={disabled} onClick={onClick} style={{backgroundColor:bgColor,color:color}}>{text}</button>
     </>
   );
 };

@@ -15,6 +15,8 @@ import {
 import { useEffect, useState } from "react";
 import Button from "../../Components/Button/Button";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
+import { useTranslation } from "react-i18next";
 // UUID
 const uniqueId = uuidv4();
 
@@ -58,9 +60,10 @@ const ShoppingCart = () => {
 
     // Added to cart notfication
     notification.success({
-      message: "Deleted from cart",
+      message: t("shoppingCart.deletedFromCart"),
       className: "notificationCustom",
-      description: "The ticket has been deleted from your cart.",
+      duration:1,
+      description: t("shoppingCart.deletedFromCartDescription")
     });
   };
 
@@ -78,7 +81,7 @@ const ShoppingCart = () => {
     setShowQuantityOptions(true);
   };
 
-  // Auto-hide quantity options after 3 seconds
+  // Auto-hide quantity options after 4 seconds
   useEffect(() => {
     let timer: number;
     if (showQuantityOptions) {
@@ -92,7 +95,7 @@ const ShoppingCart = () => {
       window.clearTimeout(timer);
     };
   }, [showQuantityOptions]);
-  console.log(uniqueId);
+
 
   // Submit form
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -118,11 +121,14 @@ const ShoppingCart = () => {
   // Changes form inputs
   const handleFormInputsChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    const formattedValue = name === "email" ? value.toLowerCase() : value;
     setFormdata((prev) => ({
       ...prev,
-      [name]: value,
+      [name]:formattedValue
     }));
   };
+
+  const {t}=useTranslation()
 
   return (
     <>
@@ -130,15 +136,14 @@ const ShoppingCart = () => {
         <div>
           <Header />
         </div>
-
         <div className="cartWrapper">
           <div>
-            <h1 className="cartTitle">Sopping Cart</h1>
+            <h1 className="cartTitle">{t("shoppingCart.title")}</h1>
             <BreadCrumb></BreadCrumb>
           </div>
           <div className="tickestAndPaymentBox">
             <div className="cartBox">
-              <h4 className="yourCart">Your cart</h4>
+              <h4 className="yourCart">{t("shoppingCart.yourCart")}</h4>
               <div className="yourTickets">
                 {cartItems.length === 0 ? (
                   <p
@@ -148,7 +153,7 @@ const ShoppingCart = () => {
                       color: "rgb(103 103 103)",
                     }}
                   >
-                    Your cart is empty
+                    {t("shoppingCart.cartEmpty")}
                   </p>
                 ) : (
                   <div className="itemMapBox">
@@ -186,7 +191,7 @@ const ShoppingCart = () => {
                                   -
                                 </div>
                                 <p
-                                  style={{ fontSize: "19px" }}
+                                  className="incP"
                                   onClick={() => handleQuantityClick(index)}
                                 >
                                   {item.quantity}
@@ -231,7 +236,7 @@ const ShoppingCart = () => {
                     ))}
 
                     <div className="deliveryConatiner">
-                      <h1>Choose a delivery method</h1>
+                      <h1>{t("shoppingCart.chooseDeliveryMethod")}</h1>
                       <div className="boxFlexx">
                         <div>
                           <input
@@ -244,7 +249,7 @@ const ShoppingCart = () => {
                           <label className="deliveryLabel" htmlFor="electron">
                             <img src="https://cdn.iticket.az/icons/delivery_methods/1.svg" />
                             <span className="spn">
-                              Electronic ticket or voucher
+                            {t("shoppingCart.electronicTicket")}
                             </span>
                           </label>
                         </div>
@@ -259,7 +264,7 @@ const ShoppingCart = () => {
                           />
                           <label className="deliveryLabel" htmlFor="sales">
                             <img src="https://cdn.iticket.az/icons/delivery_methods/3.svg" />
-                            <span className="spn">At sales points</span>
+                            <span className="spn">{t("shoppingCart.atSalesPoints")}</span>
                           </label>
                         </div>
                       </div>
@@ -270,16 +275,16 @@ const ShoppingCart = () => {
             </div>
 
             <div className="payment">
-              <h4 className="paymetTitle">Delivery method</h4>
+              <h4 className="paymetTitle">{t("shoppingCart.deliveryMethod")}</h4>
               <h3 style={{ fontWeight: "600" }}>
                 {selectedName
                   ? selectedName
-                  : "Electronic ticket or voucher (in PDF format)"}
+                  : t("shoppingCart.electronicTicket2")}
               </h3>
 
               <form className="myForm" onSubmit={handleSubmit}>
                 <h4 className="paymetTitle" style={{ marginBottom: "-5px" }}>
-                  User information
+                {t("shoppingCart.userInformation")}
                 </h4>
                 {errors.length > 0 && (
                   <div style={{ color: "red" }}>
@@ -291,14 +296,14 @@ const ShoppingCart = () => {
                 <input
                   type="text"
                   required
-                  placeholder="Name"
+                  placeholder={t("Contact.form.namePlaceholder")}
                   name="name"
                   onChange={handleFormInputsChanges}
                 />
                 <input
                   type="text"
                   required
-                  placeholder="Surname"
+                  placeholder={t("Contact.form.surnamePlaceholder")}
                   name="surname"
                   onChange={handleFormInputsChanges}
                 />
@@ -307,17 +312,17 @@ const ShoppingCart = () => {
                   name="mobile"
                   id=""
                   required
-                  placeholder="Mobile"
+                  placeholder={t("Contact.form.mobilePlaceholder")}
                   onChange={handleFormInputsChanges}
                 />
                 <input
                   type="email"
                   name="email"
-                  id=""
+                  value={formData.email}
                   required
-                  placeholder="Email"
+                  placeholder={t("Contact.form.emailPlaceholder")}
                   onChange={handleFormInputsChanges}
-                  style={{ textTransform: "lowercase" }}
+                  
                 />
 
                 <div
@@ -327,7 +332,7 @@ const ShoppingCart = () => {
                     alignItems: "center",
                   }}
                 >
-                  <p className="totalPrice">Total</p>
+                  <p className="totalPrice">{t("shoppingCart.total")}</p>
                   {totalPrice === 0 ? (
                     ""
                   ) : (
@@ -342,7 +347,7 @@ const ShoppingCart = () => {
                     required
                     style={{ height: "20px", width: "20px" }}
                   />
-                  <p>I accept the terms and conditions.</p>
+                  <p>{t("shoppingCart.acceptTerms")}</p>
                 </div>
                 <div
                   style={{
@@ -354,10 +359,10 @@ const ShoppingCart = () => {
                 >
                   {/* <Link to={`/order/${uniqueId}`}> */}
                   <Button
-                    text="Create an order"
+                    text={t("shoppingCart.createOrder")}
                     bgColor="rgb(253, 53, 90)"
                     color="white"
-                    width="200px"
+                    className="resBtn2"
                     disabled={totalPrice === 0}
                   />
                   {/* </Link> */}
@@ -366,6 +371,7 @@ const ShoppingCart = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </section>
     </>
   );

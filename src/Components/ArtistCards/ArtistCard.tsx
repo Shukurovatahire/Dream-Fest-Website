@@ -14,9 +14,10 @@ const ArtistCard: React.FC<IProps> = (props) => {
   const handleCardClick = () => {
     setIsClicked(!isClicked);
   };
+
   return (
-    <div className="cardBox" onClick={handleCardClick}>
-      <a target="_blank" href={musicLink}>
+    <div className="cardBox" onClick={handleCardClick} data-testid="artist-card">
+      <a target="_blank" className="musicLink" href={musicLink}>
         <div className="appleMusicLink">
           <img
             src="https://static.tildacdn.one/tild3266-6662-4339-a433-383236363733/Group_1948754425.svg"

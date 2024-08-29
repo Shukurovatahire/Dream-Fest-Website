@@ -26,7 +26,7 @@ interface CartState {
   items: Concert[];
   formData: IFormData[];
   totalPrice: number;
-  cardData:ICardData[]
+  cardData: ICardData[];
 }
 
 const initialState: CartState = {
@@ -55,6 +55,12 @@ const cartSlice = createSlice({
         (acc, item) => acc + item.quantity * ticketPrice,
         0
       );
+    },
+    clearCart: (state) => {
+      state.items = [];
+      state.formData = [];
+      state.cardData = [];
+      state.totalPrice = 0;
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter(
@@ -95,9 +101,9 @@ const cartSlice = createSlice({
     clearFormData: (state) => {
       state.formData = [];
     },
-    saveCardData:(state,action)=>{
-      state.cardData.push(action.payload)
-    }
+    saveCardData: (state, action) => {
+      state.cardData.push(action.payload);
+    },
   },
 });
 export default cartSlice.reducer;
@@ -108,5 +114,6 @@ export const {
   decreaseQuantity,
   saveFormData,
   clearFormData,
-  saveCardData
+  saveCardData,
+  clearCart,
 } = cartSlice.actions;

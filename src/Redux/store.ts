@@ -3,7 +3,7 @@ import concertSlice from "./concertSlice";
 import { concertApi } from "../Services/ConcertApi/concertApi";
 import cartReducer from "./cartSlice";
 
-export const store:Store = configureStore({
+export const store= configureStore({
   reducer: {
     concerts: concertSlice,
     cart:cartReducer,

@@ -51,3 +51,151 @@ body {
   margin-left: 1rem;
   text-align: left;
 }
+
+/* Responsiv */
+/* Mobile devices */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .allStars {
+    overflow: hidden;
+  }
+  .cards {
+    place-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cardContainer {
+    gap: 1rem;
+  }
+  .wrapperBox {
+    margin-top: 1rem;
+  }
+  .cardTitle {
+    font-size: 22px;
+    margin-left: 0;
+    text-align: center;
+  }
+  .breadCrumb {
+    margin-left: 0;
+  }
+}
+@media (min-width: 455px) and (max-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* iPads, Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .allStars {
+    overflow: hidden;
+  }
+  .cards {
+    place-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cardContainer {
+    gap: 1rem;
+  }
+  .wrapperBox {
+    margin-top: 1rem;
+  }
+  .cardTitle {
+    font-size: 22px;
+    margin-left: 2rem;
+    text-align: left;
+  }
+  .breadCrumb {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 630px) and (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .allStars {
+    overflow: hidden;
+  }
+  .cards {
+    place-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cardContainer {
+    gap: 1rem;
+  }
+  .wrapperBox {
+    margin-top: 1rem;
+  }
+  .cardTitle {
+    font-size: 22px;
+    margin-left: 2rem;
+    text-align: left;
+  }
+  .breadCrumb {
+    margin-left: 2rem;
+  }
+}
+/*  Small screens, laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .allStars {
+    overflow: hidden;
+  }
+  .cards {
+    place-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .cardContainer {
+    gap: 1rem;
+  }
+  .wrapperBox {
+    margin-top: 1rem;
+  }
+  .cardTitle {
+    font-size: 22px;
+    margin-left: 2rem;
+    text-align: left;
+  }
+  .breadCrumb {
+    margin-left: 2rem;
+  }
+}
+
+/*  Desktops, large screens */
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .allStars {
+    overflow: hidden;
+   padding: 1rem;
+  }
+  .cards {
+    place-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .cardContainer {
+    gap: 1rem;
+  }
+  .wrapperBox {
+    margin-top: 1rem;
+  }
+  .cardTitle {
+    font-size: 22px;
+    margin-left: 2rem;
+    text-align: left;
+  }
+  .breadCrumb {
+    margin-left: 2rem;
+  }
+}

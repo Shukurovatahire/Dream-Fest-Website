@@ -1,56 +1,176 @@
 .header {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  justify-content: space-around;
+  z-index: 1000;
+}
+.headerImg img {
+  width: 80px;
+  height: 40px;
+}
+.resCartBox {
+  display: none;
+}
+.headerImg img:hover {
+  filter: drop-shadow(rgba(198, 236, 250, 0.7) 0px 0px 8px) brightness(1.5);
+}
+/* \Hamburger menu */
+
+.langBox {
+  display: flex;
+  gap: 10px;
+  width: 50px;
+  height: 80px;
+  top: 53px;
+  align-items: center;
+  position: absolute;
+  flex-direction: column;
+}
+.navRes {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+.lng {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+.hamburger {
+  display: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.responsivNavList {
+  display: none;
+}
+.resCartBox {
+  width: 50px;
+  display: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 50px;
+}
+.ulListRes {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  font-size: 20px;
+  margin-left: 1rem;
+  flex-direction: column;
+}
+.hamburger div {
+  background-color: white;
+  height: 2px;
+  width: 25px;
+  margin: 3px 0;
+}
+.ulList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  align-items: center;
+}
+.ulList li {
+  cursor: pointer;
+  font-size: 25px;
+  margin-right: 3rem;
+}
+.ulList li:hover {
+  filter: drop-shadow(rgba(198, 236, 250, 0.7) 0px 0px 8px) brightness(1.5);
+}
+.translate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  min-width: 50px;
+  min-height: 50px;
+}
+.translate div {
+  font-size: 18px;
+}
+.hr {
+  height: 1px;
+  opacity: 0.2;
+  background-color: white;
+}
+.headerNavBar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.cartIcon {
+  font-size: 22px;
+}
+
+/* Responsiv */
+
+@media (max-width: 960px) {
+  .headerNavBar {
     display: flex;
     align-items: center;
-    min-height: 80px;
-    justify-content: space-around;
-    z-index: 1000;
   }
-  .headerImg img {
-    width: 80px;
-    height: 40px;
-    
-  }
-  .headerImg img:hover{
-    filter: drop-shadow(rgba(198, 236, 250, 0.7) 0px 0px 8px) brightness(1.5);
-  }
-  
-  .ulList {
+
+  .hamburger {
     display: flex;
-    list-style: none;
-    margin: 0;
-    align-items: center;
   }
-  .ulList li {
-    cursor: pointer;
-    font-size: 25px;
-    margin-right: 3rem;
-  }
-  .ulList li:hover{
-    filter: drop-shadow(rgba(198, 236, 250, 0.7) 0px 0px 8px) brightness(1.5);
+  .navList {
+    display: none;
   }
   .translate {
+    display: none;
+  }
+  .responsivNavList {
+    display: flex;
+  }
+  .header {
+    padding: 1.2rem;
+    justify-content: space-between;
+  }
+  .resCartBox {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    min-width: 50px;
-    min-height: 50px;
   }
-  .translate div {
-    font-size: 20px;
-  }
-  .hr {
-    height: 1px;
-    opacity: 0.2;
-    background-color: white;
-  }
-  .headerNavBar{
-    display: flex;
-    align-items: center;
-  }
-  .cartIcon{
-    font-size: 22px;
-  }
+}
+.responsivNavList {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #111111;
+  width: 250px;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 2000;
+}
+
+.responsivNavList.active {
+  display: flex;
+  transform: translateX(0);
+}
+
+.closeBtn {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  align-self: flex-end;
+}

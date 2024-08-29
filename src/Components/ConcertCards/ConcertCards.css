@@ -2,7 +2,7 @@
   max-width: 500px;
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
 }
 .imgConatiner img {
   border-radius: 50px;
@@ -24,4 +24,145 @@
 .btnContainer {
   display: flex;
   gap: 10px;
+}
+.resBtn1{
+  padding: 8px;
+}
+
+/* Responsiv */
+/* Mobile devices */
+
+@media (min-width: 320px) and (max-width: 380px) {
+  .cardContainer2 {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1.5rem;
+    place-items: center;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+  }
+  .imgConatiner img {
+    max-width: 100px;
+    border-radius: 20px;
+  }
+  .descriptionContainer {
+    max-width: 190px;
+    gap: 10px;
+  }
+  .concertName,
+  .concertDate {
+    font-size: 10px;
+  }
+  .resBtn1 {
+    height: 40px;
+    width: 80px;
+    font-size: 8px;
+  }
+}
+
+/* iPads, Tablets */
+
+@media (min-width: 381px) and (max-width: 500px) {
+  .cardContainer2 {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1.5rem;
+    place-items: center;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+  }
+  .imgConatiner img {
+    max-width: 140px;
+    border-radius: 35px;
+  }
+  .descriptionContainer {
+    gap: 10px;
+  }
+  .concertName,
+  .concertDate {
+    font-size: 14px;
+  }
+  .resBtn1 {
+    height: 52px;
+    width: 90px;
+    font-size: 9px;
+  }
+}
+
+/*  Small screens, laptops */
+@media (min-width: 501px) and (max-width: 751px) {
+  .cardContainer2 {
+    width: 100%;
+    padding-left: 1.5rem;
+    place-items: center;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+  }
+  .imgConatiner img {
+    max-width: 150px;
+    border-radius: 38px;
+  }
+  .descriptionContainer {
+    gap: 10px;
+  }
+  .concertName,
+  .concertDate {
+    font-size: 19px;
+  }
+  .resBtn1 {
+    height: 52px;
+    width: 118  px;
+    font-size: 12px;
+  }
+}
+
+/*  Desktops, large screens */
+@media (min-width: 751px) and (max-width: 1026px) {
+  .cardContainer2 {
+    width: 100%;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 1rem;
+  }
+  .imgConatiner img {
+    max-width: 125px;
+    border-radius: 25px;
+  }
+  .descriptionContainer {
+    gap: 10px;
+    max-width: 300px;
+  }
+  .concertName,
+  .concertDate {
+    font-size: 15px;
+  }
+  .resBtn1 {
+    height: 46px;
+    width: 100px;
+    font-size: 12px;
+  }
+}
+@media (min-width: 1026px) and (max-width: 1231px) {
+  .cardContainer2 {
+    width: 100%;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1rem;
+  }
+  
+  .imgConatiner img {
+    max-width: 180px;
+    border-radius: 40px;
+  }
+  .descriptionContainer {
+    gap: 10px;
+    max-width: 250px;
+  }
+  .concertName,
+  .concertDate {
+    font-size: 18px;
+  }
+  .resBtn1 {
+    height: 46px;
+    width: 100px;
+    font-size: 12px;
+  }
 }

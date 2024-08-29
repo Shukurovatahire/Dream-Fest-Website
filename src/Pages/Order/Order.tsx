@@ -3,6 +3,7 @@ import {  useAppSelector } from "../../Redux/hooks";
 import "./Order.css";
 import Header from "../../Components/Header/Header";
 import Button from "../../Components/Button/Button";
+import { useTranslation } from "react-i18next";
 
 const Order = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -19,6 +20,7 @@ const Order = () => {
         navigate("/payment")
     }
   }
+  const {t}=useTranslation()
   return (
     <>
       <section className="orderSection" >
@@ -26,7 +28,7 @@ const Order = () => {
         <div className="orderWrapper" >
           <div className="orderBox">
             <h1>
-              Order <span>#{lastSix}</span>
+              {t("orderTitle")} <span>#{lastSix}</span>
             </h1>
           </div>
           <div className="details">
@@ -34,33 +36,33 @@ const Order = () => {
               {formData.map((item: any, index: number) => (
                 <div key={index} className="userDetails">
                   <p style={{ textTransform: "capitalize" }}>
-                    Name: {item.surname} {item.name}
+                {t("nameLabel")}: {item.surname} {item.name}
                   </p>
                   <p>
-                    Email: <span style={{ color: "blue" }}>{item.email}</span>
+                  {t("emailLabel")}: <span style={{ color: "blue" }}>{item.email}</span>
                   </p>
-                  <p>Molibe: {item.mobile}</p>
-                  <p>Delivery method: Electronic ticket </p>
+                  <p> {t("mobileLabel")}: {item.mobile}</p>
+                  <p>{t("deliveryMethod")}</p>
                 </div>
               ))}
             </div>
             <hr />
             <div>
-              <h1>Order details</h1>
+              <h1>{t("orderDetailsTitle")}</h1>
               <div className="orderDtails">
                 {cartItems.map((item: any, index: number) => (
                   <div key={index} className="orderDtails">
-                    <p>{index === 0 && "Your ticket :"} {item.name}, </p>
+                    <p>{index === 0 && t("ticketLabel")}  {item.name}, </p>
                   </div>
                 ))}
                 <p>
-                  Create date: {now}, {now2}
+                 {t("createDateLabel")} {now}, {now2}
                 </p>
                 <p style={{ fontWeight: "bold" }}>
-                  Total price: <span> {totalPrice}$</span>
+                  {t("totalPriceLabel")} <span> {totalPrice}$</span>
                 </p>
                 <div className="paymentBtn" style={{textAlign:"end" , marginRight:"1rem"}}>
-                  <Button width="200px" bgColor="#2F5384" color="white" text="Proceed to payment"
+                  <Button className="resBtn3" bgColor="#2F5384" color="white" text={t("proceedToPaymentButton")}
                    onClick={handleOrderClick}/>
                 </div>
               </div>

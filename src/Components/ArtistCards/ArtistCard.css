@@ -7,7 +7,7 @@
   position: relative;
   z-index: 0;
   cursor: pointer;
-  border: 2px solid rgba(255, 255, 255, 0.2)
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 .appleMusicLink {
   background-image: linear-gradient(
@@ -28,29 +28,172 @@
   margin-bottom: 8rem;
 }
 
-.artsitName{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 260px;
-    height: 130px;
+.artsitName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 130px;
 }
-.artistPhoto{
-    width: 260px;
-    height: 260px;
-    position: absolute;
-    z-index: 1;
-    top: 0px;
-    background-position: center;
-    background-size: cover;
+.artistPhoto {
+  width: 260px;
+  height: 260px;
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50px;
+  transition: top 0.5s ease;
+}
+.nameParagraf {
+  font-size: 22px;
+  text-wrap: wrap;
+  font-weight: 500;
+  max-width: 150px;
+  text-transform: uppercase;
+  text-align: center;
+}
+/* Responsiv */
+/* Mobile devices */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .artistPhoto {
+    width: 140px;
+    height: 141px;
+  }
+  .artsitName {
+    width: 140px;
+    height: 80px;
+  }
+  .nameParagraf {
+    font-size: 14px;
+    max-width: 114px;
+  }
+  .cardBox {
+    width: 140px;
+    height: 213px;
     border-radius: 50px;
-    transition: top 0.5s ease;
+  }
+  .appleMusicLink img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 4rem;
+  }
+  .musicLink {
+    width: 140px;
+    height: 140px;
+  }
+  .appleMusicLink {
+    height: 140px;
+    width: 140px;
+    border-radius: 50px;
+  }
 }
-.nameParagraf{
-    font-size: 22px;
-    text-wrap: wrap;
-    font-weight: 500;
-    max-width: 150px;
-    text-transform: uppercase;
-    text-align: center;
+
+/* iPads, Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .artistPhoto {
+    width: 140px;
+    height: 141px;
+  }
+  .artsitName {
+    width: 140px;
+    height: 80px;
+  }
+  .nameParagraf {
+    font-size: 14px;
+    max-width: 114px;
+  }
+  .cardBox {
+    width: 140px;
+    height: 213px;
+    border-radius: 50px;
+  }
+  .appleMusicLink img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 4rem;
+  }
+  .musicLink {
+    width: 140px;
+    height: 140px;
+  }
+  .appleMusicLink {
+    height: 140px;
+    width: 140px;
+    border-radius: 50px;
+  }
+}
+/*  Small screens, laptops */
+
+@media (min-width: 781px) and (max-width: 1024px) {
+  .artistPhoto {
+    width: 190px;
+    height: 173px;
+  }
+  .artsitName {
+    width: 190px;
+    height: 100px;
+  }
+  .nameParagraf {
+    font-size: 16px;
+    max-width: 114px;
+  }
+  .cardBox {
+    width: 190px;
+    height: 260px;
+    border-radius: 50px;
+  }
+  .appleMusicLink img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 4rem;
+  }
+  .musicLink {
+    width: 190px;
+    height: 140px;
+  }
+  .appleMusicLink {
+    height: 170px;
+    width: 190px;
+    border-radius: 50px;
+  }
+}
+
+/* Desktops, large screens */
+
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .artistPhoto {
+    width: 230px;
+    height: 200px;
+  }
+  .artsitName {
+    width: 230px;
+    height: 110px;
+  }
+  .nameParagraf {
+    font-size: 18px;
+    max-width: 114px;
+  }
+  .cardBox {
+    width: 230px;
+    height: 301px;
+    border-radius: 50px;
+  }
+  .appleMusicLink img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 4rem;
+  }
+  .musicLink {
+    width: 230px;
+    height: 140px;
+  }
+  .appleMusicLink {
+    height: 190px;
+    width: 230px;
+    border-radius: 50px;
+  }
 }

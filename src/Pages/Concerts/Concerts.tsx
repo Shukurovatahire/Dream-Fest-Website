@@ -7,6 +7,9 @@ import { addTocart } from "../../Redux/cartSlice";
 import { notification } from "antd";
 import "antd/dist/reset.css";
 import "./Concerts.css";
+import Footer from "../../Components/Footer/Footer";
+import { useTranslation } from "react-i18next";
+import { RingLoader } from "react-spinners";
 
 const Concerts = () => {
   const {
@@ -14,66 +17,56 @@ const Concerts = () => {
     error,
     isLoading,
   } = useGetConcertsQuery("Hollywood bowl");
-
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US");
+  };
+  const handleCartClick = (concert: {
+    id: string;
+    name: string;
+    url: string;
+    date: string;
+  }) => {
+    dispatch(
+      addTocart({
+        concert_id: concert.id,
+        name: concert.name,
+        endDate: concert.date,
+        image: concert.url,
+        quantity: 1,
+      })
+    );
+    // const concertsData = concerts.data;
 
-  if (error) {
-    console.error("Error fetching data:", error);
-    return <div>Error fetching data</div>;
-  }
-
-  if (concerts && concerts.data) {
-    const concertsData = concerts.data;
-
-    const formatDate = (dateString: string) => {
-      return new Date(dateString).toLocaleDateString("en-US");
-    };
-
-    // Add to cart
-    const handleCartClick = (concert: {
-      id: string;
-      name: string;
-      url: string;
-      date: string;
-    }) => {
-      dispatch(
-        addTocart({
-          concert_id: concert.id,
-          name: concert.name,
-          endDate: concert.date,
-          image: concert.url,
-          quantity:1,
-        })
-      );
+    if (concerts && concerts.data) {
+      // Add to cart
       // Added to cart notfication
       notification.success({
-        message: "Added to Cart",
+        message: t("concert_added_to_cart"),
+        duration:1,
         className: "notificationCustom",
-        description: `${concert.name} has been added to your cart.`,
+        description: `${concert.name}  ${t("concert_added_to_cart")}`,
       });
-    };
-
-    return (
-      <>
-        <section className="concertsContainer">
-          <Haeder />
-          <div className="wrapper">
-            <div className="crumbTitle">
-              <h1 className="concertsContainerTitle">
-                Hollywood Bowl Concerts
-              </h1>
-              <div style={{display:"flex"}}>
+    }
+  };
+  // return <div>No concerts available</div>;
+  return (
+    <>
+      <section className="concertsContainer">
+        <Haeder />
+        <div className="wrapper">
+          <div className="crumbTitle">
+            <h1 className="concertsContainerTitle">
+              {t("hollywood_bowl_concerts")}
+            </h1>
+            <div className="containerBreadC" style={{ display: "flex" }}>
               <BreadCrumb />
-             
-              </div>
-             
             </div>
-
+          </div>
+          {!isLoading ? (
             <div className="gridBox">
-              {concertsData.map((concert: any) => (
+              {concerts.data?.map((concert: any) => (
                 <ConcertCard
                   handleClick={handleCartClick}
                   key={concert.concert_id}
@@ -84,12 +77,26 @@ const Concerts = () => {
                 />
               ))}
             </div>
-          </div>
-        </section>
-      </>
-    );
-  }
-  return <div>No concerts available</div>;
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: "1rem",
+                fontSize: "20px ",
+              }}
+            >
+              <RingLoader color="#e50a0a" size={95}/>
+              <p>Loading . . . </p>
+            </div>
+          )}
+        </div>
+        <Footer />
+      </section>
+    </>
+  );
 };
 
 export default Concerts;

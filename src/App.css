@@ -5,8 +5,14 @@
   box-sizing: border-box;
   font-family: "Montserrat", Arial, sans-serif;
 }
-body {
-  /* background-color:  rgba(6, 0, 30, 1) */
+.aboutMax {
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-between;
+  position: relative;
 }
 
 .mainSection {
@@ -17,25 +23,25 @@ body {
 .container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   background-color: rgba(6, 0, 30, 1);
 }
 .wrapperSection {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 7rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 .aboutSection {
   z-index: 1;
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
   justify-content: space-between;
   position: relative;
 }
 .aboutImg img {
   width: 100%;
-  height: 100%;
   position: absolute;
   z-index: -1;
   max-width: 630px;
@@ -115,8 +121,9 @@ body {
   display: flex;
   width: 100%;
   height: 100%;
-  font-size: 54px;
+  font-size: 50px;
   max-width: 342px;
+  margin-top: 2rem;
   max-height: 500px;
   line-height: 1.3;
   font-weight: 500;
@@ -172,6 +179,7 @@ body {
 .infoSection {
   width: 100%;
   height: 100%;
+  margin-top: 1rem;
 }
 .infoTitle p {
   font-size: 52px;
@@ -179,7 +187,6 @@ body {
   font-weight: 500;
   text-transform: uppercase;
 }
-
 .infoSection {
   display: flex;
   flex-direction: column;
@@ -290,18 +297,18 @@ body {
   margin-bottom: 1rem;
   text-align: center;
 }
-.socialCintainerParagraf2{
+.socialCintainerParagraf2 {
   font-size: 20px;
   line-height: 1.55;
   margin-bottom: 1rem;
   text-align: center;
 }
-.socialCintainerParagraf3{
+.socialCintainerParagraf3 {
   font-size: 20px;
   line-height: 1.55;
   text-align: center;
 }
-.instaContact{
+.instaContact {
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -310,17 +317,442 @@ body {
   justify-content: center;
   margin-bottom: 6rem;
 }
-.instaImg{
+.instaImg {
   width: 100%;
   height: 100%;
   opacity: 0.5;
   width: 60px;
   height: 60px;
 }
-.instaContact img:hover{
+.instaContact img:hover {
   opacity: 1;
   cursor: pointer;
 }
-a{
+a {
   text-decoration: none;
 }
+.instaContactP {
+  font-size: 14px;
+  opacity: 0.3;
+}
+
+/* Responsiv */
+/* Mobile devices */
+@media (min-width: 320px) and (max-width: 480px) {
+  .aboutSection {
+    flex-direction: column;
+    margin-top: 0;
+    gap: 2rem;
+  }
+  .imgRealativ {
+    gap: 2rem;
+  }
+  .aboutImg img {
+    max-width: 350px;
+    max-height: 300px;
+  }
+  .imgRealativ img {
+    max-width: 130px;
+    max-height: 87px;
+  }
+  .aboutMax {
+    max-width: 350px;
+    max-height: 610px;
+    margin-top: 0;
+    flex-direction: column;
+  }
+  .aboutSection {
+    margin-top: 2rem;
+    align-items: center;
+  }
+  .blueSpan {
+    font-size: 28px;
+  }
+  .whiteSpan {
+    font-size: 28px;
+  }
+  .titleContainer {
+    max-width: 475px;
+  }
+  .titleContainer p {
+    font-size: clamp(30px, 7vw, 40px);
+    margin-right: 0;
+
+    max-width: fit-content;
+  }
+  .wrapperSection {
+    padding: 10px;
+    gap: 1rem;
+  }
+  .ageLimit {
+    margin-top: 0;
+  }
+  .infoTitle p {
+    font-size: 16px;
+  }
+  .aboutFestival {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .aboutFestival p {
+    font-size: 14px;
+  }
+  .toAllArtists {
+    height: 200px;
+  }
+  .btnToALLStars {
+    width: 120px;
+    font-size: 12px;
+    margin-bottom: 11px;
+  }
+  .lineUp h1 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  .infoSection {
+    gap: 2rem;
+  }
+  .dateDay {
+    font-size: 40px;
+  }
+  .dateMonth {
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+  .dateContainers {
+    gap: 7px;
+  }
+  .dateWrapper {
+    gap: 2rem;
+    margin-bottom: -2rem;
+  }
+  .starsContainer ul {
+    gap: 4px;
+  }
+  .starsContainer li {
+    font-size: 17px;
+  }
+  .carousel h1 {
+    font-size: 25px;
+  }
+  .socialCintainerParagraf,
+  .socialCintainerParagraf2,
+  .socialCintainerParagraf3 {
+    font-size: 16px;
+    text-align: left;
+  }
+  .instaContact p {
+    font-size: 12px;
+  }
+  .instaContactP {
+    font-size: 12px;
+  }
+}
+
+/* iPads, Tablets */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .aboutSection {
+    flex-direction: column;
+    margin-top: 0;
+    gap: 6rem;
+  }
+  .imgRealativ {
+    gap: 5rem;
+  }
+  .imgRealativ img {
+    max-width: 200px;
+    max-height: 134px;
+  }
+  .aboutSection {
+    margin-top: 2rem;
+  }
+  .blueSpan {
+    font-size: 40px;
+  }
+  .whiteSpan {
+    font-size: 40px;
+  }
+  .aboutImg img {
+    max-width: 760px;
+    height: 490px;
+  }
+  .titleContainer {
+    margin-top: 5rem;
+    max-width: 762px;
+    font-size: 42px;
+    margin-bottom: 1rem;
+  }
+  .wrapperSection {
+    padding: 2rem;
+    gap: 1rem;
+  }
+  .ageLimit {
+    margin-top: 5px;
+  }
+  .infoTitle p {
+    font-size: 25px;
+  }
+  .aboutMax {
+    margin-top: 0;
+    flex-direction: column;
+  }
+  .aboutFestival {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .aboutFestival p {
+    font-size: 21px;
+  }
+  .toAllArtists {
+    height: 300px;
+  }
+  .starsContainer {
+    width: 260px;
+  }
+  .btnToALLStars {
+    width: 120px;
+    font-size: 12px;
+    margin-bottom: 11px;
+  }
+  .lineUp h1 {
+    font-size: 38px;
+    font-weight: 500;
+  }
+  .infoSection {
+    gap: 2rem;
+  }
+  .dateDay {
+    font-size: 70px;
+  }
+  .dateMonth {
+    font-size: 30px;
+  }
+  .dateContainers {
+    gap: 7px;
+  }
+  .dateWrapper {
+    margin-bottom: -2rem;
+  }
+  .starsContainer ul {
+    gap: 4px;
+  }
+  .starsContainer li {
+    font-size: 25px;
+  }
+  .carousel h1 {
+    font-size: 30px;
+  }
+  .socialCintainerParagraf,
+  .socialCintainerParagraf2,
+  .socialCintainerParagraf3 {
+    font-size: 20px;
+    text-align: left;
+  }
+  .instaContact p {
+    font-size: 15px;
+  }
+  .instaContactP {
+    font-size: 13px;
+  }
+}
+
+/* Small screens,laptops */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .aboutSection {
+    flex-direction: column;
+    margin-top: 0;
+    gap: 6rem;
+  }
+  .imgRealativ {
+    gap: 13rem;
+  }
+  .imgRealativ img {
+    max-width: 230px;
+    max-height: 140px;
+  }
+  .centerImg {
+    width: 630px;
+  }
+  .blueSpan {
+    font-size: 45px;
+  }
+  .whiteSpan {
+    font-size: 45px;
+  }
+  .titleContainer {
+    margin-top: 5rem;
+    max-width: 1020px;
+    font-size: 50px;
+    margin-bottom: 2rem;
+    margin-right: 0;
+  }
+  .wrapperSection {
+    padding: 2rem;
+    gap: 1rem;
+  }
+  .ageLimit {
+    margin-top: 5px;
+  }
+  .infoTitle p {
+    font-size: 32px;
+  }
+  .aboutMax {
+    margin-top: 0;
+    align-items: center;
+    flex-direction: column;
+  }
+  .aboutFestival {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .aboutFestival p {
+    font-size: 30px;
+  }
+  .toAllArtists {
+    height: 400px;
+  }
+  .btnToALLStars {
+    width: 15 0px;
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  .lineUp h1 {
+    font-size: 42px;
+    font-weight: 500;
+  }
+  .infoSection {
+    gap: 2rem;
+  }
+  .dateDay {
+    font-size: 75px;
+  }
+  .dateMonth {
+    font-size: 37px;
+  }
+  .dateContainers {
+    gap: 7px;
+  }
+  .dateWrapper {
+    margin-bottom: -2rem;
+  }
+  .starsContainer ul {
+    gap: 4px;
+  }
+  .starsContainer li {
+    font-size: 28px;
+  }
+  .carousel h1 {
+    font-size: 35px;
+  }
+  .socialCintainerParagraf,
+  .socialCintainerParagraf2,
+  .socialCintainerParagraf3 {
+    font-size: 25px;
+    text-align: left;
+  }
+  .instaContact p {
+    font-size: 20px;
+  }
+  .instaContactP {
+    font-size: 13px;
+  }
+}
+
+/* Desctp, large srceens */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .aboutSection {
+    flex-direction: column;
+    margin-top: 0;
+    gap: 6rem;
+  }
+  .imgRealativ {
+    gap: 13rem;
+  }
+  .imgRealativ img {
+    max-width: 230px;
+    max-height: 140px;
+  }
+  .centerImg {
+    width: 630px;
+  }
+  .blueSpan {
+    font-size: 45px;
+  }
+  .whiteSpan {
+    font-size: 45px;
+  }
+  .titleContainer {
+    font-size: 50px;
+    margin-bottom: 2rem;
+    margin-right: 0;
+  }
+  .wrapperSection {
+    padding: 1.5rem;
+    gap: 5rem;
+  }
+  .ageLimit {
+    margin-top: 5px;
+  }
+  .infoTitle p {
+    font-size: 42px;
+  }
+  .aboutMax {
+    margin-top: 0;
+  }
+  .aboutFestival p {
+    font-size: 25px;
+  }
+  .toAllArtists {
+    height: 400px;
+  }
+  .btnToALLStars {
+    width: 200px;
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+  .lineUp h1 {
+    font-size: 47px;
+    font-weight: 500;
+  }
+  .infoSection {
+    gap: 2rem;
+  }
+  .dateDay {
+    font-size: 85px;
+  }
+  .dateMonth {
+    font-size: 42px;
+  }
+  .dateContainers {
+    gap: 7px;
+  }
+  .dateWrapper {
+    margin-bottom: -2rem;
+  }
+  .starsContainer ul {
+    gap: 4px;
+  }
+  .starsContainer li {
+    font-size: 29px;
+  }
+  .carousel h1 {
+    font-size: 45px;
+  }
+  .socialCintainerParagraf,
+  .socialCintainerParagraf2,
+  .socialCintainerParagraf3 {
+    font-size: 25px;
+    text-align: left;
+  }
+  .instaContact p {
+    font-size: 20px;
+  }
+  .instaContactP {
+    font-size: 13px;
+  }
+}
+
+/* Extra large screens. TV */
