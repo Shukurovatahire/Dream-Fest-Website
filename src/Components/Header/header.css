@@ -24,7 +24,10 @@
   color: white;
   cursor: pointer;
   margin: 18px;
-  align-self: flex-end;
+  z-index: 2001; /* Yüksek z-index */
+  position: fixed; /* Fixed konumlandırma */
+  top: 0;
+  right: 0;
 }
 
 .langBox {
@@ -40,7 +43,8 @@
 .navRes {
   flex-direction: column;
   display: flex;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   justify-content: space-between;
   height: 100%;
 }
@@ -64,9 +68,6 @@
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
-}
-.responsivNavList {
-  display: none;
 }
 .resCartBox {
   width: 50px;
@@ -130,7 +131,25 @@
 .cartIcon {
   font-size: 22px;
 }
+.responsivNavList {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #111111;
+  width: 250px;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 2000;
+}
 
+.responsivNavList.active {
+  display: flex;
+  transform: translateX(0);
+}
 /* Responsiv */
 
 @media (max-width: 960px) {
@@ -164,23 +183,5 @@
     justify-content: center;
   }
 }
-.responsivNavList {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: #111111;
-  width: 250px;
-  height: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 2000;
-}
 
-.responsivNavList.active {
-  display: flex;
-  transform: translateX(0);
-}
 

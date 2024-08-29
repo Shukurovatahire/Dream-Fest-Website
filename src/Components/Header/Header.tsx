@@ -5,6 +5,7 @@
   import { useEffect, useState } from "react";
   import { AiOutlineClose } from "react-icons/ai";
   import { useTranslation } from "react-i18next";
+  import { IoCloseSharp } from "react-icons/io5";
 
   const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -72,7 +73,7 @@
               </Link>
             </div>
             <div className={`responsivNavList ${isMenuOpen ? "active" : ""}`} role="navigation">
-              <AiOutlineClose className="closeBtn" onClick={toggleMenu} />
+              <IoCloseSharp className="closeBtn" onClick={toggleMenu} />
               <div className="navRes">
               <ul className="ulListRes">
                 <Link style={{ textDecoration: "none", color: "white" }} to="/">
