@@ -33,7 +33,12 @@
   flex-direction: column;
   display: flex;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
+}
+.lang{
+  padding: 10px; 
+  border-radius: 50%;
+  border: 1px solid gray;
 }
 .lng {
   display: flex;
@@ -125,6 +130,9 @@
     align-items: center;
   }
 
+  .navRes{
+    height: 100vh;
+  }
   .hamburger {
     display: flex;
   }
