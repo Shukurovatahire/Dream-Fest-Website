@@ -143,6 +143,7 @@ const Payment = () => {
                           type="text"
                           name="fullName"
                           placeholder="Azer Aliyev"
+                          required
                           onChange={handleFormInputsChanges}
                         />
                       </label>
@@ -155,6 +156,7 @@ const Payment = () => {
                           placeholder="0000 0000 0000 0000"
                           name="cardNumber"
                           maxLength={16}
+                          required
                           onChange={handleFormInputsChanges}
                         />
                       </label>
@@ -162,7 +164,7 @@ const Payment = () => {
                       <div className="dateDetails">
                         <label>
                           {t("month")}
-                          <select name="month" onChange={handleSelectChanges}>
+                          <select name="month" onChange={handleSelectChanges} required>
                             <option value="">MM</option>
                             {months.map((month, index) => (
                               <option key={index} value={month}>
@@ -173,7 +175,7 @@ const Payment = () => {
                         </label>
                         <label>
                           <span>{t("year")}</span>
-                          <select name="year" onChange={handleSelectChanges}>
+                          <select name="year" onChange={handleSelectChanges} required>
                             <option>YY</option>
                             {years.map((year, index) => (
                               <option key={index} value={year}>
@@ -190,6 +192,7 @@ const Payment = () => {
                             placeholder="..."
                             maxLength={3}
                             name="ssc"
+                            required
                             onChange={handleFormInputsChanges}
                           />
                         </label>
