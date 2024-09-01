@@ -81,7 +81,7 @@ const ShoppingCart = () => {
     setShowQuantityOptions(true);
   };
 
-  // Auto-hide quantity options after 4 seconds
+  // Auto-hide quantity options after 4 second
   useEffect(() => {
     let timer: number;
     if (showQuantityOptions) {
@@ -97,7 +97,8 @@ const ShoppingCart = () => {
   }, [showQuantityOptions]);
 
 
-  // Submit form
+  //? Submit form
+  
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(saveFormData(formData));
