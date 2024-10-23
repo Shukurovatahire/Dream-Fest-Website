@@ -1,12 +1,25 @@
 import { useEffect, useState, useTransition } from "react";
 import "./App.css";
-import React from 'react';
+import React from "react";
 import ReactLeaflet from "./Components/ReactLeaflet/ReactLeaflet";
 import Haeder from "./Components/Header/Header";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch, useAppSelector } from "./Redux/hooks";
+import { CartState, clearCart, loadCart } from "./Redux/cartSlice";
+import { RootState } from "@reduxjs/toolkit/query";
+import { logOut } from "./Redux/userSlice";
 function App() {
-  const {t}=useTranslation()
+  const dispatch = useAppDispatch();
+  const { t } = useTranslation();
+
+  const initializeUsers = () => {
+    const existingUsers = localStorage.getItem("allUsers");
+    if (!existingUsers) {
+      localStorage.setItem("allUsers", JSON.stringify([]));
+    }
+  };
+  initializeUsers();
   const images = [
     "https://optim.tildacdn.one/tild6434-6463-4536-b063-626133396639/-/format/webp/slider.jpg",
     "https://optim.tildacdn.one/tild6538-3261-4266-a335-326130333665/-/format/webp/3.jpg",
@@ -23,7 +36,8 @@ function App() {
   const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {``
+    const interval = setInterval(() => {
+      ``;
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
 
@@ -37,6 +51,8 @@ function App() {
 
     return () => clearInterval(interval);
   }, []);
+
+
 
   return (
     <>
@@ -69,9 +85,7 @@ function App() {
                   </div>
                 </div>
                 <div className="titleContainer">
-                  <p className="aboutTitle">
-                  {t('event_description')}
-                  </p>
+                  <p className="aboutTitle">{t("event_description")}</p>
                   <div className="ageLimit">
                     <div className="age">12+</div>
                   </div>
@@ -81,15 +95,11 @@ function App() {
 
             <section className="infoSection">
               <div className="infoTitle">
-                <p>
-                {t('info')}
-                </p>
+                <p>{t("info")}</p>
               </div>
               <div className="aboutFestival">
                 <img src="https://static.tildacdn.one/tild6430-6434-4764-a637-386536323564/DREAM_FEST.svg" />
-                <p>
-                 {t("festival_description")}
-                </p>
+                <p>{t("festival_description")}</p>
               </div>
 
               <div
@@ -278,16 +288,12 @@ function App() {
               </div>
               <div className="line"></div>
               <div className="socialCintainer">
-                <p className="socialCintainerParagraf">
-                {t("shuttle_info")}
-                </p>
+                <p className="socialCintainerParagraf">{t("shuttle_info")}</p>
                 <p className="socialCintainerParagraf2">
-                 {t("shuttle_schedule1")} <br />
+                  {t("shuttle_schedule1")} <br />
                   <p>{t("shuttle_schedule2")}</p>
                 </p>
-                <p className="socialCintainerParagraf3">
-                 {t("free_transfer")}
-                </p>
+                <p className="socialCintainerParagraf3">{t("free_transfer")}</p>
               </div>
               <div className="line"></div>
               <div className="instaContact">
@@ -302,11 +308,9 @@ function App() {
                 </a>
 
                 <p style={{ opacity: "0.5", textTransform: "uppercase" }}>
-                 {t("contact_info")}
+                  {t("contact_info")}
                 </p>
-                <p className="instaContactP">
-                 {t("address")}
-                </p>
+                <p className="instaContactP">{t("address")}</p>
               </div>
             </section>
           </section>

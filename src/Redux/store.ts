@@ -2,11 +2,13 @@ import { configureStore, Store } from "@reduxjs/toolkit";
 import concertSlice from "./concertSlice";
 import { concertApi } from "../Services/ConcertApi/concertApi";
 import cartReducer from "./cartSlice";
+import userReducer from "./userSlice";
 
 export const store= configureStore({
   reducer: {
     concerts: concertSlice,
     cart:cartReducer,
+    user:userReducer,
     [concertApi.reducerPath]: concertApi.reducer,
   },
   middleware:(getDefaultMiddleware) =>

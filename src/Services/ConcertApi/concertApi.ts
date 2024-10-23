@@ -1,21 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// export const concertApi = createApi({
-//   reducerPath: "concertApi",
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: "https://concerts-artists-events-tracker.p.rapidapi.com",
-//   }),
-//   endpoints: (builder) => ({
-//     getConcerts: builder.query({
-//       query: () => "",
-//     }),
-//   }),
-// });
+const rapidApiKey = "6546f2c2damsh0690a83566e7883p1022d7jsn0121ad1741c0";
 
-// export const { useGetConcertsQuery }: any = concertApi;
-const rapidApiKey = "e46a248c11msh84f97c00228596cp116e51jsn4e421bbe7241";
-
-// API Slice oluşturma
+// API Slice 
 export const concertApi = createApi({
   reducerPath: "concertApi",
   baseQuery: fetchBaseQuery({

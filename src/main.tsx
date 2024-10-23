@@ -18,6 +18,8 @@ import Contact from "./Pages/Contact/Contact";
 import { I18nextProvider } from "react-i18next";
 import React from "react";
 import i18n from "./i18n";
+import Login from "./Pages/Login/Login";
+import Profile from "./Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -37,11 +39,11 @@ const router = createBrowserRouter([
     element: <ConcertDetails />,
   },
   {
-    path: "cart",
+    path: "/cart",
     element: <ShoppingCart />,
   },
   {
-    path: "order/:id",
+    path: "/order/:id",
     element: <Order />,
   },
   {
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
     path: "/contact",
     element: <Contact />,
   },
+  {
+    path:"/login",
+    element:<Login/>
+  },
+  {
+    path:"/profile/:id",
+    element:<Profile/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

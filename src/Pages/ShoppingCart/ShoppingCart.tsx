@@ -7,8 +7,11 @@ import { v4 as uuidv4 } from "uuid";
 import "antd/dist/reset.css";
 import "./ShoppingCart.css";
 import {
+  addTocart,
+  Concert,
   decreaseQuantity,
   increaseQuantity,
+  loadCart,
   removeFromCart,
   saveFormData,
 } from "../../Redux/cartSlice";
@@ -17,6 +20,7 @@ import Button from "../../Components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
+
 // UUID
 const uniqueId = uuidv4();
 
@@ -40,10 +44,11 @@ interface FormData {
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const cartItems = useAppSelector((state) => state.cart.items);
+  const cartItems = useAppSelector((state) => state.cart.items || []);
   const totalPrice = useAppSelector((state) => state.cart.totalPrice);
   const [selectedName, setSelectedName] = useState<string>("");
   const [activIndex, setActivIndex] = useState<number | null>(null);
+  const isAuthenticated=useAppSelector((state)=>state.user.isAuthenticated)
   const [formData, setFormdata] = useState<FormData>({
     name: "",
     surname: "",
@@ -62,8 +67,8 @@ const ShoppingCart = () => {
     notification.success({
       message: t("shoppingCart.deletedFromCart"),
       className: "notificationCustom",
-      duration:1,
-      description: t("shoppingCart.deletedFromCartDescription")
+      duration: 1,
+      description: t("shoppingCart.deletedFromCartDescription"),
     });
   };
 
@@ -74,6 +79,11 @@ const ShoppingCart = () => {
       value === "electron" ? "Electronic ticket or voucher" : "At sales points"
     );
   };
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  console.log("Current User1:", currentUser);
+  const users = JSON.parse(localStorage.getItem("allUsers") || "[]");
+  console.log("alllUsers", users);
 
   // Quantity click handle
   const handleQuantityClick = (index: number) => {
@@ -96,9 +106,8 @@ const ShoppingCart = () => {
     };
   }, [showQuantityOptions]);
 
-
   //? Submit form
-  
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(saveFormData(formData));
@@ -125,11 +134,12 @@ const ShoppingCart = () => {
     const formattedValue = name === "email" ? value.toLowerCase() : value;
     setFormdata((prev) => ({
       ...prev,
-      [name]:formattedValue
+      [name]: formattedValue,
     }));
   };
 
-  const {t}=useTranslation()
+  const { t } = useTranslation();
+  console.log(cartItems);
 
   return (
     <>
@@ -163,7 +173,10 @@ const ShoppingCart = () => {
                         <div className="ticketFlexBox">
                           <div>
                             <div className="arrayBox">
-                              <img src={item.image} className="cardImage" />
+                              <img
+                                src="https://i.guim.co.uk/img/media/0d961031d7d7da69525fef264d5a8d81235bcb5b/0_0_7182_4309/master/7182.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d453cfeacf206882f14f6e4beec7f509"
+                                className="cardImage"
+                              />
                               <div className="textArrBox">
                                 <p
                                   style={{
@@ -250,7 +263,7 @@ const ShoppingCart = () => {
                           <label className="deliveryLabel" htmlFor="electron">
                             <img src="https://cdn.iticket.az/icons/delivery_methods/1.svg" />
                             <span className="spn">
-                            {t("shoppingCart.electronicTicket")}
+                              {t("shoppingCart.electronicTicket")}
                             </span>
                           </label>
                         </div>
@@ -265,7 +278,9 @@ const ShoppingCart = () => {
                           />
                           <label className="deliveryLabel" htmlFor="sales">
                             <img src="https://cdn.iticket.az/icons/delivery_methods/3.svg" />
-                            <span className="spn">{t("shoppingCart.atSalesPoints")}</span>
+                            <span className="spn">
+                              {t("shoppingCart.atSalesPoints")}
+                            </span>
                           </label>
                         </div>
                       </div>
@@ -276,7 +291,9 @@ const ShoppingCart = () => {
             </div>
 
             <div className="payment">
-              <h4 className="paymetTitle">{t("shoppingCart.deliveryMethod")}</h4>
+              <h4 className="paymetTitle">
+                {t("shoppingCart.deliveryMethod")}
+              </h4>
               <h3 style={{ fontWeight: "600" }}>
                 {selectedName
                   ? selectedName
@@ -285,7 +302,7 @@ const ShoppingCart = () => {
 
               <form className="myForm" onSubmit={handleSubmit}>
                 <h4 className="paymetTitle" style={{ marginBottom: "-5px" }}>
-                {t("shoppingCart.userInformation")}
+                  {t("shoppingCart.userInformation")}
                 </h4>
                 {errors.length > 0 && (
                   <div style={{ color: "red" }}>
@@ -323,7 +340,6 @@ const ShoppingCart = () => {
                   required
                   placeholder={t("Contact.form.emailPlaceholder")}
                   onChange={handleFormInputsChanges}
-                  
                 />
 
                 <div
@@ -372,7 +388,7 @@ const ShoppingCart = () => {
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </section>
     </>
   );

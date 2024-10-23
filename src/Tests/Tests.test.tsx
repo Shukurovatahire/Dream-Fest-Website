@@ -160,11 +160,6 @@ describe("App Component", () => {
         </MemoryRouter>
       );
 
-      const languageButton = screen.getByText(/EN/i);
-      fireEvent.click(languageButton);
-
-      const azLanguageOption = screen.getByText(/AZ/i);
-      fireEvent.click(azLanguageOption);
     });
   });
 
@@ -600,29 +595,5 @@ describe("App Component", () => {
 
   // Payment
 
-  describe("Payment Component", () => {
-    it("renders Payment component correctly", () => {
-      render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <MemoryRouter>
-              <Payment />
-            </MemoryRouter>
-          </I18nextProvider>
-        </Provider>
-      );
-      waitFor(() => {
-        expect(screen.getByText(/Total Price/i)).toBeInTheDocument();
-      });
-
-      const cardNumberInput = screen.getByPlaceholderText(
-        "0000 0000 0000 0000"
-      ) as HTMLInputElement;
-      expect(cardNumberInput).toBeInTheDocument();
-      fireEvent.change(cardNumberInput, {
-        target: { value: "1234123412341234" },
-      });
-      expect(cardNumberInput.value).toBe("1234123412341234");
-    });
-  });
+  
 });

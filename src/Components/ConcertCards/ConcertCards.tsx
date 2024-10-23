@@ -8,17 +8,19 @@ interface ICardProps {
   name: string;
   date: string;
   id: string;
-  handleClick: (concert: {
-    id: string;
-    name: string;
-    url: string;
-    date: string;
-  }) => void;
+  handleClick: (
+    concert: {
+      id: string;
+      name: string;
+      url: string;
+      date: string;
+    }
+  ) => void;
 }
 const ConcertCard: React.FC<ICardProps> = (props) => {
   const { url, name, date, id, handleClick } = props;
 
-  const {t}=useTranslation()
+  const { t } = useTranslation();
 
   const fallbackImageUrl =
     "https://i.guim.co.uk/img/media/0d961031d7d7da69525fef264d5a8d81235bcb5b/0_0_7182_4309/master/7182.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d453cfeacf206882f14f6e4beec7f509";
