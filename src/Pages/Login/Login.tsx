@@ -72,7 +72,7 @@ const Login = () => {
 
   // Add poduct to cart
   const handleAddToCart = (product: any) => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
     if (currentUser) {
       const updatedCart = [...currentUser.cart, product];
       currentUser.cart = updatedCart;

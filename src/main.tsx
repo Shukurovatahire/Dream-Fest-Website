@@ -3,23 +3,21 @@ import App from "./App";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import AllArtists from "./Pages/AllArtists/AllArtists";
-import Concerts from "./Pages/Concerts/Concerts";
-import ConcertDetails from "./Pages/ConcertDetails/ConcertDetails";
-import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
-import Order from "./Pages/Order/Order";
-import Payment from "./Pages/Payment/Payment";
-import Contact from "./Pages/Contact/Contact";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import i18n from "./i18n";
-import Login from "./Pages/Login/Login";
-import Profile from "./Pages/Profile/Profile";
+
+// Lazy load for large components
+const AllArtists = lazy(() => import("./Pages/AllArtists/AllArtists"));
+const Concerts = lazy(() => import("./Pages/Concerts/Concerts"));
+const ConcertDetails = lazy(() => import("./Pages/ConcertDetails/ConcertDetails"));
+const ShoppingCart = lazy(() => import("./Pages/ShoppingCart/ShoppingCart"));
+const Order = lazy(() => import("./Pages/Order/Order"));
+const Payment = lazy(() => import("./Pages/Payment/Payment"));
+const Contact = lazy(() => import("./Pages/Contact/Contact"));
+const Login = lazy(() => import("./Pages/Login/Login"));
+const Profile = lazy(() => import("./Pages/Profile/Profile"));
 
 const router = createBrowserRouter([
   {
@@ -28,46 +26,82 @@ const router = createBrowserRouter([
   },
   {
     path: "/allartists",
-    element: <AllArtists />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <AllArtists />
+      </Suspense>
+    ),
   },
   {
     path: "/concerts",
-    element: <Concerts />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Concerts />
+      </Suspense>
+    ),
   },
   {
     path: "/concertdetail/:id",
-    element: <ConcertDetails />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ConcertDetails />
+      </Suspense>
+    ),
   },
   {
     path: "/cart",
-    element: <ShoppingCart />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ShoppingCart />
+      </Suspense>
+    ),
   },
   {
     path: "/order/:id",
-    element: <Order />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Order />
+      </Suspense>
+    ),
   },
   {
     path: "/payment",
-    element: <Payment />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Payment />
+      </Suspense>
+    ),
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Contact />
+      </Suspense>
+    ),
   },
   {
-    path:"/login",
-    element:<Login/>
+    path: "/login",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Login />
+      </Suspense>
+    ),
   },
   {
-    path:"/profile/:id",
-    element:<Profile/>
-  }
+    path: "/profile/:id",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Profile />
+      </Suspense>
+    ),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </I18nextProvider>
   </Provider>
 );

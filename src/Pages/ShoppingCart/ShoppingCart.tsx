@@ -22,7 +22,6 @@ import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
 
 // UUID
-const uniqueId = uuidv4();
 
 // Formatted description
 const truncateDescription = (description: string, delimiter: string) => {
@@ -72,6 +71,13 @@ const ShoppingCart = () => {
     });
   };
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem("currentUser");
+    if (storedUser) {
+      setFormdata(JSON.parse(storedUser));
+    }
+  }, []);
+
   // Checked data
   const handleInputClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -109,6 +115,7 @@ const ShoppingCart = () => {
   //? Submit form
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const uniqueId = uuidv4();
     e.preventDefault();
     dispatch(saveFormData(formData));
     const newErrors: string[] = [];

@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es2015",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "noEmit": true,
-    "types": ["jest", "node"],
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "target": "ESNext",                       // Hedef ES sürümü
+    "module": "ESNext",                       // Modül sistemi
+    "jsx": "react-jsx",                       // JSX dönüşüm ayarı
+    "esModuleInterop": true,                  // CommonJS modüllerinin ES6 stili ile import edilmesine izin verir
+    "skipLibCheck": true,                     // Kütüphaneleri kontrol etmeyi atlar
+    "strict": true,                           // Sıkı tip kontrolü
+    "noEmit": true,                           // Çıktı dosyası oluşturmaz
+    "resolveJsonModule": true,                // JSON modüllerini çözümleme
+    "moduleResolution": "bundler",            // Modül çözümleme
+    "allowSyntheticDefaultImports": true,     // Varsayılan içe aktarımlar için
+    "baseUrl": "src",                           // Temel dizin ayarı
     "paths": {
-      "@/*": ["./src/*"]  
+      "@/*": ["*"]
     }
-  }
+  },
+  "include": ["src/**/*"],                    // İçerik dizini
+  "exclude": ["node_modules", "dist"]        // Hariç tutulan dizinler
 }

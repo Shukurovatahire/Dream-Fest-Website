@@ -7,7 +7,7 @@ import BreadCrumb from "@/Components/BreadCrumb/BreadCrumb";
 
 const Profile = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
-  const allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
+  const allUsers = JSON.parse(localStorage.getItem("allUsers") || "[]");
   const navigate =useNavigate()
   const [formData, setFormData] = useState({
     userId: currentUser.userId,
