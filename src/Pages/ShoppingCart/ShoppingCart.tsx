@@ -21,8 +21,6 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
 
-// UUID
-
 // Formatted description
 const truncateDescription = (description: string, delimiter: string) => {
   const index = description.lastIndexOf(delimiter);
@@ -47,7 +45,7 @@ const ShoppingCart = () => {
   const totalPrice = useAppSelector((state) => state.cart.totalPrice);
   const [selectedName, setSelectedName] = useState<string>("");
   const [activIndex, setActivIndex] = useState<number | null>(null);
-  const isAuthenticated=useAppSelector((state)=>state.user.isAuthenticated)
+  const isAuthenticated = useAppSelector((state) => state.user.isAuthenticated);
   const [formData, setFormdata] = useState<FormData>({
     name: "",
     surname: "",
