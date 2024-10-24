@@ -9,6 +9,19 @@ export default defineConfig({
   server: {
     open: true,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Örneğin, sayfa bileşenleri için ayrı chunk'lar oluşturma
+          if (id.includes('src/Pages/')) {
+            return id.split('src/Pages/')[1].split('/')[0]; // her sayfa için bir chunk
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit: 600 // İsterseniz bu değeri artırabilirsiniz
+  },
 test:{
   globals:true,
   environment:"jsdom",

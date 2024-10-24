@@ -8,18 +8,20 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import AllArtists from "./Pages/AllArtists/AllArtists";
-import Concerts from "./Pages/Concerts/Concerts";
-import ConcertDetails from "./Pages/ConcertDetails/ConcertDetails";
-import ShoppingCart from "./Pages/ShoppingCart/ShoppingCart";
-import Order from "./Pages/Order/Order";
-import Payment from "./Pages/Payment/Payment";
-import Contact from "./Pages/Contact/Contact";
 import { I18nextProvider } from "react-i18next";
-import React from "react";
+import React, { Suspense } from "react";
 import i18n from "./i18n";
-import Login from "./Pages/Login/Login";
-import Profile from "./Pages/Profile/Profile";
+
+// Bileşenleri dinamik olarak ithal edelim
+const AllArtists = React.lazy(() => import("./Pages/AllArtists/AllArtists"));
+const Concerts = React.lazy(() => import("./Pages/Concerts/Concerts"));
+const ConcertDetails = React.lazy(() => import("./Pages/ConcertDetails/ConcertDetails"));
+const ShoppingCart = React.lazy(() => import("./Pages/ShoppingCart/ShoppingCart"));
+const Order = React.lazy(() => import("./Pages/Order/Order"));
+const Payment = React.lazy(() => import("./Pages/Payment/Payment"));
+const Contact = React.lazy(() => import("./Pages/Contact/Contact"));
+const Login = React.lazy(() => import("./Pages/Login/Login"));
+const Profile = React.lazy(() => import("./Pages/Profile/Profile"));
 
 const router = createBrowserRouter([
   {
@@ -28,39 +30,39 @@ const router = createBrowserRouter([
   },
   {
     path: "/allartists",
-    element: <AllArtists />,
+    element: <Suspense fallback={<div>Loading...</div>}><AllArtists /></Suspense>,
   },
   {
     path: "/concerts",
-    element: <Concerts />,
+    element: <Suspense fallback={<div>Loading...</div>}><Concerts /></Suspense>,
   },
   {
     path: "/concertdetail/:id",
-    element: <ConcertDetails />,
+    element: <Suspense fallback={<div>Loading...</div>}><ConcertDetails /></Suspense>,
   },
   {
     path: "/cart",
-    element: <ShoppingCart />,
+    element: <Suspense fallback={<div>Loading...</div>}><ShoppingCart /></Suspense>,
   },
   {
     path: "/order/:id",
-    element: <Order />,
+    element: <Suspense fallback={<div>Loading...</div>}><Order /></Suspense>,
   },
   {
     path: "/payment",
-    element: <Payment />,
+    element: <Suspense fallback={<div>Loading...</div>}><Payment /></Suspense>,
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: <Suspense fallback={<div>Loading...</div>}><Contact /></Suspense>,
   },
   {
-    path:"/login",
-    element:<Login/>
+    path: "/login",
+    element: <Suspense fallback={<div>Loading...</div>}><Login /></Suspense>,
   },
   {
-    path:"/profile/:id",
-    element:<Profile/>
+    path: "/profile/:id",
+    element: <Suspense fallback={<div>Loading...</div>}><Profile /></Suspense>,
   }
 ]);
 
