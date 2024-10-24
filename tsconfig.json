@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "esnext", 
+    "target": "esnext",
+    "module": "es2020",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "paths": {
-      "@/*": ["./src/*"]  
+      "@/*": ["./src/*"]
     }
   }
 }

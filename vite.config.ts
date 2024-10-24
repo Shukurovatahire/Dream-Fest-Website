@@ -12,15 +12,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // Örneğin, sayfa bileşenleri için ayrı chunk'lar oluşturma
-          if (id.includes('src/Pages/')) {
-            return id.split('src/Pages/')[1].split('/')[0]; // her sayfa için bir chunk
-          }
-        }
-      }
+        // Burada büyük kütüphaneleri manuel parçalara ayırabilirsiniz
+        manualChunks: {
+          vendor: ['react', 'react-dom'], // Örnek büyük kütüphaneler
+        },
+      },
     },
-    chunkSizeWarningLimit: 600 // İsterseniz bu değeri artırabilirsiniz
   },
 test:{
   globals:true,
