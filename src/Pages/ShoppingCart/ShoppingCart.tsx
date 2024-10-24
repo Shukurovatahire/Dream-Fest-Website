@@ -55,6 +55,7 @@ const ShoppingCart = () => {
   const [errors, setErrors] = useState<string[]>([]);
   const [showQuantityOptions, setShowQuantityOptions] =
     useState<boolean>(false);
+    console.log(totalPrice,1);
 
   //  Delete from cart
   const handleRemove = (concertId: string) => {
@@ -112,10 +113,11 @@ const ShoppingCart = () => {
 
   //? Submit form
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitCartForm = (e: React.FormEvent<HTMLFormElement>) => {
     const uniqueId = uuidv4();
     e.preventDefault();
     dispatch(saveFormData(formData));
+    console.log(123);
     const newErrors: string[] = [];
     if (!formData.name) newErrors.push("Name is required.");
     if (!formData.surname) newErrors.push("Surname is required.");
@@ -305,7 +307,7 @@ const ShoppingCart = () => {
                   : t("shoppingCart.electronicTicket2")}
               </h3>
 
-              <form className="myForm" onSubmit={handleSubmit}>
+              <form className="myForm" onSubmit={handleSubmitCartForm}>
                 <h4 className="paymetTitle" style={{ marginBottom: "-5px" }}>
                   {t("shoppingCart.userInformation")}
                 </h4>
@@ -313,7 +315,7 @@ const ShoppingCart = () => {
                   <div style={{ color: "red" }}>
                     {errors.map((error, index) => (
                       <p key={index}>{error}</p>
-                    ))}
+                    ))} 
                   </div>
                 )}
                 <input
@@ -341,7 +343,6 @@ const ShoppingCart = () => {
                 <input
                   type="email"
                   name="email"
-                  value={formData.email}
                   required
                   placeholder={t("Contact.form.emailPlaceholder")}
                   onChange={handleFormInputsChanges}

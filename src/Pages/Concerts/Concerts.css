@@ -9,6 +9,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  background-color: black;
   margin-bottom: 4rem;
 }
 .wrapper {

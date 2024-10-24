@@ -7,7 +7,7 @@ import {
   BrowserRouter,
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
+} from "react-router-dom";  
 import { I18nextProvider } from "react-i18next";
 import React, { Suspense } from "react";
 import i18n from "./i18n";

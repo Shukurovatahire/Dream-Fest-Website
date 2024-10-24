@@ -41,10 +41,7 @@ const loadCartFromLocalStorage = (): CartState => {
     return {
       items: cart,
       formData: [],
-      totalPrice: currentUser.cart.reduce(
-        (acc: any, item: Concert) => acc + item.quantity * ticketPrice,
-        0
-      ),
+      totalPrice: calculateTotalPrice(cart),
       cardData: [],
     };
   }
@@ -56,7 +53,7 @@ const loadCartFromLocalStorage = (): CartState => {
   };
 };
 
-const initialState: CartState = loadCartFromLocalStorage();
+
 // Helper function to calculate total price
 const calculateTotalPrice = (items: Concert[]): number => {
   if (!Array.isArray(items) || items.length === 0) {
@@ -66,7 +63,7 @@ const calculateTotalPrice = (items: Concert[]): number => {
     return total + item.quantity * ticketPrice;
   }, 0);
 };
-
+const initialState: CartState = loadCartFromLocalStorage();
 // LocalStorage Update
 export const updateLocalStorage = (items: Concert[],) => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
